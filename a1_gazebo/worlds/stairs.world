@@ -44,9 +44,9 @@
                 <pose>0 0 0.09 0 0 0</pose>
                 <collision name="floor_collision">
                     <geometry>
-                        <box>
+                            <box>
                             <size>2 2 0.18</size>
-                        </box>
+                            </box>
                     </geometry>
                 </collision>
                 <visual name="floor_visual">
@@ -109,7 +109,7 @@
         </model>
 
         <include>
-            <uri>model:///home/bian/catkin_ws/src/unitree_ros/unitree_gazebo/worlds/building_editor_models/stairs</uri>
+            <uri>model:///root/try/ros2_ws/src/a1_gazebo/worlds/building_editor_models/stairs</uri>
         </include>
 
     </world>

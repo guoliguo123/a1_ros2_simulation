@@ -16,7 +16,7 @@ int main(int argc, char **argv)
         WORLD,
         ROBOT
     };
-    coord def_frame = coord::WORLD;
+    coord def_frame = coord::ROBOT;
 
     rclcpp::init(argc, argv);
     auto A1_node = rclcpp::Node::make_shared("a1");

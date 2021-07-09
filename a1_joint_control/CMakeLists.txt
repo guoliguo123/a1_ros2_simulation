@@ -37,14 +37,17 @@ endif()
 set(dependencies
     rclcpp
     a1_msgs
-
         )
 include_directories(include ${ament_INCLUDE_DIRS} ${Boost_INCLUDE_DIR})
 link_directories(include ${ament_LIB_DIRS} lib)
 
-add_library(unitree_leg
-        src/joint_controller.cpp)
+add_library(unitree_legged_control SHARED
+        src/a1_joint.cpp)
 
-ament_target_dependencies(unitree_leg ${dependencies})
-target_link_libraries(unitree_leg ${ament_LIBRARIES} unitree_joint_control_tool)
+ament_target_dependencies(unitree_legged_control ${dependencies})
+target_link_libraries(unitree_legged_control ${ament_LIBRARIES} unitree_joint_control_tool)
+
+install(TARGETS unitree_legged_control
+  LIBRARY DESTINATION lib
+)
 ament_package()

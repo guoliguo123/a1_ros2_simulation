@@ -26,7 +26,7 @@ namespace gazebo
                 gzerr << "UnitreeFootContactPlugin requires a ContactSensor.\n";
                 return;
             }
-            this->contact_namespace = "contact/";
+            this->contact_namespace = "contact";
             //this->rosnode = new ros::NodeHandle(this->contact_namespace);
             auto A1_node = rclcpp::Node::make_shared(this->contact_namespace);
             // add "visual" is for the same name of draw node

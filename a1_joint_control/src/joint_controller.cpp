@@ -11,10 +11,9 @@ Use of this source code is governed by the MPL-2.0 license, see LICENSE.
 using std::placeholders::_1;
 namespace ph = std::placeholders;
 // #define rqtTune // use rqt or not
-
+#if 0
 namespace unitree_legged_control 
 {
-
     UnitreeJointController::UnitreeJointController(){
         memset(&lastCmd, 0, sizeof(a1_msgs::msg::MotorCmd));
         memset(&lastState, 0, sizeof(a1_msgs::msg::MotorState));
@@ -91,7 +90,8 @@ namespace unitree_legged_control
 
         // Start command subscriber
         //sub_ft = n.subscribe(name_space + "/" +"joint_wrench", 1, &UnitreeJointController::setTorqueCB, this);
-
+        auto A1_node = rclcpp::Node::make_shared("joint");
+        name_space = A1_node->get_namespace();
         sub_ft = A1_node->create_subscription<geometry_msgs::msg::WrenchStamped>(
                 name_space + "/" +"joint_wrench", 1, std::bind(&UnitreeJointController::setTorqueCB,this , ph::_1));
         //sub_cmd = n.subscribe("command", 20, &UnitreeJointController::setCommandCB, this);
@@ -213,7 +213,26 @@ namespace unitree_legged_control
 
     // Controller stopping in realtime
     void UnitreeJointController::stopping(){}
+    void UnitreeJointController::setTorqueCB(const geometry_msgs::msg::WrenchStamped::UniquePtr& msg)
+    {
+        if(isHip) sensor_torque = msg->wrench.torque.x;
+        else sensor_torque = msg->wrench.torque.y;
+        // printf("sensor torque%f\n", sensor_torque);
+    }
 
+    void UnitreeJointController::setCommandCB(const a1_msgs::msg::MotorCmd::UniquePtr& msg)
+    {
+        lastCmd.mode = msg->mode;
+        lastCmd.q = msg->q;
+        lastCmd.kp = msg->kp;
+        lastCmd.dq = msg->dq;
+        lastCmd.kd = msg->kd;
+        lastCmd.tau = msg->tau;
+        // the writeFromNonRT can be used in RT, if you have the guarantee that
+        //  * no non-rt thread is calling the same function (we're not subscribing to ros callbacks)
+        //  * there is only one single rt thread
+        command.writeFromNonRT(lastCmd);
+    }
     void UnitreeJointController::positionLimits(double &position)
     {
         if (joint_urdf->type == urdf::Joint::REVOLUTE || joint_urdf->type == urdf::Joint::PRISMATIC)
@@ -234,5 +253,7 @@ namespace unitree_legged_control
 
 } // namespace
 
-// Register controller to pluginlib
-PLUGINLIB_EXPORT_CLASS(unitree_legged_control::UnitreeJointController, controller_interface::ControllerInterface);
+#include "pluginlib/class_list_macros.hpp"
+
+PLUGINLIB_EXPORT_CLASS(
+        unitree_legged_control::UnitreeJointController, controller_interface::ControllerInterface)

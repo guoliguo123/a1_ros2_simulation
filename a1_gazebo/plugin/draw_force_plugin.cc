@@ -17,7 +17,7 @@ Use of this source code is governed by the MPL-2.0 license, see LICENSE.
 #include <boost/bind.hpp>
 #include <geometry_msgs/msg/wrench_stamped.hpp>
 #include <chrono>
-
+#include <iostream>
 using std::placeholders::_1;
 namespace ph = std::placeholders;
 namespace gazebo
@@ -25,15 +25,19 @@ namespace gazebo
     class UnitreeDrawForcePlugin : public VisualPlugin
     {
         public:
-        UnitreeDrawForcePlugin():line(NULL){}
+        UnitreeDrawForcePlugin():line(NULL){
+            //A1_node = rclcpp::Node::make_shared("A1_node");
+        }
         ~UnitreeDrawForcePlugin(){
             this->visual->DeleteDynamicLine(this->line);
         }
+        //std::shared_ptr<rclcpp::Node> A1_node;
 
         void Load(rendering::VisualPtr _parent, sdf::ElementPtr _sdf )
         {
+            std::cout << "=====begin run draw plug======" << std::endl;
             this->visual = _parent;
-            this->visual_namespace = "visual/";
+            this->visual_namespace = "visual";
             if (!_sdf->HasElement("topicName")){
                 RCLCPP_INFO(rclcpp::get_logger("draw"), "Force draw plugin missing <topicName>, defaults to /default_force_draw");
                 this->topic_name = "/default_force_draw";
