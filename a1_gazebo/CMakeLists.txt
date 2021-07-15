@@ -17,6 +17,10 @@ endif()
 
 # find dependencies
 find_package(ament_cmake REQUIRED)
+# uncomment the following section in order to fill in
+# further dependencies manually.
+# find_package(<dependency> REQUIRED)
+
 find_package(controller_manager REQUIRED)
 #find_package(genmsg REQUIRED)
 find_package(joint_state_controller REQUIRED)
@@ -29,7 +33,7 @@ find_package(geometry_msgs REQUIRED)
 find_package(a1_msgs REQUIRED)
 find_package(gazebo REQUIRED)
 include_directories(
-    # include
+    include
     ${Boost_INCLUDE_DIR}
     ${ament_INCLUDE_DIRS}
     ${GAZEBO_INCLUDE_DIRS}
@@ -67,9 +71,11 @@ install(TARGETS
         unitreeDrawForcePlugin
         DESTINATION lib/${PROJECT_NAME}
         )
+
 install(DIRECTORY
    launch
    worlds
    DESTINATION share/${PROJECT_NAME}
 )
+ament_export_include_directories(include)
 ament_package()

@@ -43,6 +43,7 @@ namespace gazebo
                 this->topic_name = "/default_force_draw";
             } else{
                 this->topic_name = _sdf->Get<std::string>("topicName");
+                std::cout << "=== draw topic_name === " << this->topic_name << std::endl;
             }
             if (!rclcpp::ok()){
                 int argc = 0;
@@ -69,7 +70,8 @@ namespace gazebo
 
         void OnUpdate()
         {
-            this->line->SetPoint(1, ignition::math::Vector3d(Fx, Fy, Fz));
+            this->line->SetPoint(1, ignition::math::Vector3d(0, 0, 0));
+            // std::cout << " === draw OnUpdate 1=== " << std::endl;
         }
 
         void GetForceCallback(const geometry_msgs::msg::WrenchStamped::UniquePtr msg)
@@ -77,6 +79,7 @@ namespace gazebo
             Fx = msg->wrench.force.x/20.0;
             Fy = msg->wrench.force.y/20.0;
             Fz = msg->wrench.force.z/20.0;
+            std::cout << " === draw CallBack === " << std::endl;
             // Fx = msg.wrench.force.x;
             // Fy = msg.wrench.force.y;
             // Fz = msg.wrench.force.z;

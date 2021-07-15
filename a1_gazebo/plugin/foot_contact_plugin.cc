@@ -72,9 +72,9 @@ namespace gazebo
                 Fz = 0;
             }
             else{
-                force.wrench.force.x = 0;
-                force.wrench.force.y = 0;
-                force.wrench.force.z = 0;
+                force.wrench.force.x = 3;
+                force.wrench.force.y = 3;
+                force.wrench.force.z = 3;
             }
             this->force_pub->publish(force);
         }

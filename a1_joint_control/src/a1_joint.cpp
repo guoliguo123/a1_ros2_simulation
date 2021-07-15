@@ -39,6 +39,7 @@ namespace unitree_legged_control
         memset(&lastCmd, 0, sizeof(a1_msgs::msg::MotorCmd));
         memset(&lastState, 0, sizeof(a1_msgs::msg::MotorState));
         memset(&servoCmd, 0, sizeof(ServoCmd));
+        std::cout << " === A1 JOINT INIT === " << std::endl;
     }
 
     void UnitreeJointController::setTorqueCB(const geometry_msgs::msg::WrenchStamped::UniquePtr msg)
@@ -79,6 +80,7 @@ namespace unitree_legged_control
     controller_interface::return_type
     UnitreeJointController::init(const std::string & controller_name)
     {
+        std::cout << " ===  A1 JOINT INIT === " << std::endl;
         // initialize lifecycle node
         const auto ret = ControllerInterface::init(controller_name);
         if (ret != controller_interface::return_type::OK) {
@@ -125,6 +127,7 @@ namespace unitree_legged_control
     controller_interface::return_type
     UnitreeJointController::update()
     {
+        std::cout << " === A1 UPDATE === " << std::endl;
         if (get_current_state().id() == lifecycle_msgs::msg::State::PRIMARY_STATE_INACTIVE) {
             return controller_interface::return_type::OK;
         }
@@ -182,7 +185,7 @@ namespace unitree_legged_control
     UnitreeJointController::on_configure(const rclcpp_lifecycle::State &)
     {
         const auto logger = node_->get_logger();
-
+        std::cout << " === A1 CONFIGURE === " << std::endl;
         // update parameters
         joint_names_ = node_->get_parameter("joints").as_string_array();
 
@@ -352,6 +355,9 @@ namespace unitree_legged_control
 }  // namespace joint_trajectory_controller
 
 #include "pluginlib/class_list_macros.hpp"
+#include "class_loader/register_macro.hpp"
+//PLUGINLIB_EXPORT_CLASS(
+//        unitree_legged_control::UnitreeJointController, controller_interface::ControllerInterface)
 
-PLUGINLIB_EXPORT_CLASS(
+CLASS_LOADER_REGISTER_CLASS(
         unitree_legged_control::UnitreeJointController, controller_interface::ControllerInterface)

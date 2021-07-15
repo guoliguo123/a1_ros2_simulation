@@ -7,6 +7,10 @@
   <maintainer email="13351616795@163.com">root</maintainer>
   <license>TODO: License declaration</license>
 
+  <buildtool_depend>ament_cmake</buildtool_depend>
+  
+  <test_depend>ament_lint_auto</test_depend>
+  <test_depend>ament_lint_common</test_depend>
   <buildtool_depend>ament_make</buildtool_depend>
   <buildtool_depend>genmsg</buildtool_depend>
   <build_depend>controller_manager</build_depend>
@@ -27,10 +31,14 @@
   <depend>a1_msgs</depend>
 
   <!-- The export tag contains other, unspecified, tags -->
+  <!--<export>
+          <build_type>ament_cmake</build_type>
+  </export>-->
   <export>
-      <!-- Other tools can request additional information be placed here -->
-      <gazebo_ros plugin_path="${prefix}/lib" gazebo_media_path="${prefix}"/>
+    <build_type>ament_cmake</build_type>
+    <gazebo_ros gazebo_plugin_path="lib"/>
+    <gazebo_ros gazebo_model_path="${prefix}/models"/>
+    <!--<gazebo_ros gazebo_media_path="${prefix}/worlds:${prefix}/media"/>-->
   </export>
-
 
 </package>

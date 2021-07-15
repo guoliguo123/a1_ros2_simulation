@@ -25,49 +25,50 @@ using namespace unitree_model;
 
 bool start_up = true;
 
-class multiThread : public rclcpp::Node
+class multiThread
 {
 public:
-    multiThread(string rname) : Node("a1"){
+    multiThread(string rname){
         robot_name = rname;
-
-        imu_sub = this->create_subscription<sensor_msgs::msg::Imu>(
+        auto A1_node = rclcpp::Node::make_shared(robot_name);
+        imu_sub = A1_node->create_subscription<sensor_msgs::msg::Imu>(
                 "/trunk_imu", 10, std::bind(&multiThread::imuCallback, this, _1));
 
-        footForce_sub[0] = this->create_subscription<a1_msgs::msg::MotorState>(
+        footForce_sub[0] = A1_node->create_subscription<geometry_msgs::msg::WrenchStamped>(
                 "/visual/FR_foot_contact/the_force", 1, std::bind(&multiThread::FRfootCallback, this, _1));
-        footForce_sub[1] = this->create_subscription<a1_msgs::msg::MotorState>(
+        footForce_sub[1] = A1_node->create_subscription<geometry_msgs::msg::WrenchStamped>(
                 "/visual/FL_foot_contact/the_force", 1, std::bind(&multiThread::FLfootCallback, this, _1));
-        footForce_sub[2] = this->create_subscription<a1_msgs::msg::MotorState>(
+        footForce_sub[2] = A1_node->create_subscription<geometry_msgs::msg::WrenchStamped>(
                 "/visual/RR_foot_contact/the_force", 1, std::bind(&multiThread::RRfootCallback, this, _1));
-        footForce_sub[3] = this->create_subscription<a1_msgs::msg::MotorState>(
+        footForce_sub[3] = A1_node->create_subscription<geometry_msgs::msg::WrenchStamped>(
                 "/visual/RL_foot_contact/the_force", 1, std::bind(&multiThread::RLfootCallback, this, _1));
-        servo_sub[0] = this->create_subscription<a1_msgs::msg::MotorState>(
+        servo_sub[0] = A1_node->create_subscription<a1_msgs::msg::MotorState>(
                 "/" + robot_name + "_gazebo/FR_hip_controller/state", 1, std::bind(&multiThread::FRhipCallback, this, _1));
-        servo_sub[1] = this->create_subscription<a1_msgs::msg::MotorState>(
+        servo_sub[1] = A1_node->create_subscription<a1_msgs::msg::MotorState>(
                 "/" + robot_name + "_gazebo/FR_thigh_controller/state", 1, std::bind(&multiThread::FRthighCallback, this, _1));
-        servo_sub[2] = this->create_subscription<a1_msgs::msg::MotorState>(
+        servo_sub[2] = A1_node->create_subscription<a1_msgs::msg::MotorState>(
                 "/" + robot_name + "_gazebo/FR_calf_controller/state", 1, std::bind(&multiThread::FRcalfCallback, this, _1));
-        servo_sub[3] = this->create_subscription<a1_msgs::msg::MotorState>(
+        servo_sub[3] = A1_node->create_subscription<a1_msgs::msg::MotorState>(
                 "/" + robot_name + "_gazebo/FL_hip_controller/state", 1, std::bind(&multiThread::FLhipCallback, this, _1));
-        servo_sub[4] = this->create_subscription<a1_msgs::msg::MotorState>(
+        servo_sub[4] = A1_node->create_subscription<a1_msgs::msg::MotorState>(
                 "/" + robot_name + "_gazebo/FL_thigh_controller/state", 1, std::bind(&multiThread::FLthighCallback, this, _1));
-        servo_sub[5] = this->create_subscription<a1_msgs::msg::MotorState>(
+        servo_sub[5] = A1_node->create_subscription<a1_msgs::msg::MotorState>(
                 "/" + robot_name + "_gazebo/FL_calf_controller/state", 1, std::bind(&multiThread::FLcalfCallback, this, _1));
-        servo_sub[6] = this->create_subscription<a1_msgs::msg::MotorState>(
+        servo_sub[6] = A1_node->create_subscription<a1_msgs::msg::MotorState>(
                 "/" + robot_name + "_gazebo/RR_hip_controller/state", 1, std::bind(&multiThread::RRhipCallback, this, _1));
-        servo_sub[7] = this->create_subscription<a1_msgs::msg::MotorState>(
+        servo_sub[7] = A1_node->create_subscription<a1_msgs::msg::MotorState>(
                 "/" + robot_name + "_gazebo/RR_thigh_controller/state", 1, std::bind(&multiThread::RRthighCallback, this, _1));
-        servo_sub[8] = this->create_subscription<geometry_msgs::msg::WrenchStamped>(
+        servo_sub[8] = A1_node->create_subscription<geometry_msgs::msg::WrenchStamped>(
                 "/" + robot_name + "_gazebo/RR_calf_controller/state", 1, std::bind(&multiThread::RRcalfCallback, this, _1));
-        servo_sub[9] = this->create_subscription<geometry_msgs::msg::WrenchStamped>(
+        servo_sub[9] = A1_node->create_subscription<geometry_msgs::msg::WrenchStamped>(
                 "/" + robot_name + "_gazebo/RL_hip_controller/state", 1, std::bind(&multiThread::RLhipCallback, this, _1));
-        servo_sub[10] = this->create_subscription<geometry_msgs::msg::WrenchStamped>(
+        servo_sub[10] = A1_node->create_subscription<geometry_msgs::msg::WrenchStamped>(
                 "/" + robot_name + "_gazebo/RL_thigh_controller/state", 1, std::bind(&multiThread::RLthighCallback, this, _1));
-        servo_sub[11] = this->create_subscription<geometry_msgs::msg::WrenchStamped>(
+        servo_sub[11] = A1_node->create_subscription<geometry_msgs::msg::WrenchStamped>(
                 "/" + robot_name + "_gazebo/RL_calf_controller/state", 1, std::bind(&multiThread::RLcalfCallback, this, _1));
-    }
-
+        rclcpp::spin(A1_node);
+    }   
+    
     void imuCallback(const sensor_msgs::msg::Imu::UniquePtr msg)
     { 
         lowState.imu.quaternion[0] = msg->orientation.w;
@@ -222,7 +223,6 @@ public:
     rclcpp::Subscription<sensor_msgs::msg::Imu>::SharedPtr imu_sub;
     string robot_name;
 };
-
 int main(int argc, char **argv)
 {
     rclcpp::init(argc, argv);
@@ -231,15 +231,23 @@ int main(int argc, char **argv)
     //rclcpp::param::get("/robot_name", robot_name);
     robot_name = "a1";
     cout << "robot_name: " << robot_name << endl;
-    auto master_node = rclcpp::Node::make_shared("MasterNode");
-    multiThread listen_publish_obj(robot_name);
-    using rclcpp::executors::MultiThreadedExecutor;
-    MultiThreadedExecutor executor;
-    executor.add_node(master_node);
-    std::thread executor_thread(std::bind(&MultiThreadedExecutor::spin, &executor));
-    executor_thread.detach();
+    //auto master_node = rclcpp::Node::make_shared("MasterNode");
+    //multiThread listen_publish_obj(robot_name);
+    //using rclcpp::executors::MultiThreadedExecutor;
+    //MultiThreadedExecutor executor;
+    //executor.add_node(master_node);
+    //std::thread executor_thread(std::bind(&MultiThreadedExecutor::spin, &executor));
+    //executor_thread.detach();
     usleep(300000); // must wait 300ms, to get first state
 
+    auto ros_thread = std::thread(
+    [&]() {
+      std::cout << "=== start ros===" << std::endl;
+      multiThread listen_publish_obj(robot_name);
+      std::cout << "=== end ros ===" << std::endl;
+    });
+
+    cout << "=== a1 node ===" << endl;
     // ros::Publisher lowState_pub; //for rviz visualization
     auto A1_node = rclcpp::Node::make_shared(robot_name);
     rclcpp::Publisher<a1_msgs::msg::LowState>::SharedPtr lowState_pub;
@@ -258,7 +266,7 @@ int main(int argc, char **argv)
     servo_pub[9]  = A1_node->create_publisher<a1_msgs::msg::MotorCmd>("/" + robot_name + "_gazebo/RL_hip_controller/command", 1);
     servo_pub[10] = A1_node->create_publisher<a1_msgs::msg::MotorCmd>("/" + robot_name + "_gazebo/RL_thigh_controller/command", 1);
     servo_pub[11] = A1_node->create_publisher<a1_msgs::msg::MotorCmd>("/" + robot_name + "_gazebo/RL_calf_controller/command", 1);
-
+    cout << "=== create publish over ===" << endl;
     motion_init();
 
     while (rclcpp::ok()){

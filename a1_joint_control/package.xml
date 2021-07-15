@@ -18,8 +18,8 @@
 
   <test_depend>ament_lint_auto</test_depend>
   <test_depend>ament_lint_common</test_depend>
-
   <export>
     <build_type>ament_cmake</build_type>
+    <controller_interface plugin="${prefix}/unitree_controller_plugins.xml"/>
   </export>
 </package>

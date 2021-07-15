@@ -8,6 +8,14 @@
     </hardware>
     <!--left front leg hip-->
     <joint name="FL_hip_joint">
+      <command_interface name="position">
+        <param name="min">-1</param>
+        <param name="max">1</param>
+      </command_interface>
+      <command_interface name="velocity">
+        <param name="min">-1</param>
+        <param name="max">1</param>
+      </command_interface>
       <command_interface name="effort">
         <param name="min">-0.5</param>
         <param name="max">0.5</param>
@@ -22,6 +30,14 @@
       <state_interface name="timestamp"/>     
     </joint>
     <joint name="FL_thigh_joint">
+      <command_interface name="position">
+        <param name="min">-1</param>
+        <param name="max">1</param>
+      </command_interface>
+      <command_interface name="velocity">
+        <param name="min">-1</param>
+        <param name="max">1</param>
+      </command_interface>
       <command_interface name="effort">
         <param name="min">-0.5</param>
         <param name="max">0.5</param>
@@ -36,6 +52,14 @@
       <state_interface name="timestamp"/>
     </joint>
     <joint name="FL_calf_joint">
+      <command_interface name="position">
+        <param name="min">-1</param>
+        <param name="max">1</param>
+      </command_interface>
+      <command_interface name="velocity">
+        <param name="min">-1</param>
+        <param name="max">1</param>
+      </command_interface>
       <command_interface name="effort">
         <param name="min">-0.5</param>
         <param name="max">0.5</param>
@@ -119,6 +143,14 @@
     </joint>-->
     <!--left leg-->
     <joint name="RL_hip_joint">
+      <command_interface name="position">
+        <param name="min">-1</param>
+        <param name="max">1</param>
+      </command_interface>
+      <command_interface name="velocity">
+        <param name="min">-1</param>
+        <param name="max">1</param>
+      </command_interface>
       <command_interface name="effort">
         <param name="min">-0.5</param>
         <param name="max">0.5</param>
@@ -133,6 +165,14 @@
       <state_interface name="timestamp"/>
     </joint>
     <joint name="RL_thigh_joint">
+      <command_interface name="position">
+        <param name="min">-1</param>
+        <param name="max">1</param>
+      </command_interface>
+      <command_interface name="velocity">
+        <param name="min">-1</param>
+        <param name="max">1</param>
+      </command_interface>
       <command_interface name="effort">
         <param name="min">-0.5</param>
         <param name="max">0.5</param>

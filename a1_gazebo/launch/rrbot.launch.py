@@ -80,7 +80,7 @@ def generate_launch_description():
         package="robot_state_publisher",
         executable="robot_state_publisher",
         output="screen",
-        parameters=[robot_description],
+        parameters=[robot_description, robot_control_yaml],
     )
 
     spawn_entity = Node(
@@ -97,12 +97,12 @@ def generate_launch_description():
         arguments=["joint_state_broadcaster"],
         output="screen",
     )
-    #spawn_controller_1 = Node(
-    #    package="controller_manager",
-    #    executable="spawner.py",
-    #    arguments=["FL_hip_joint"],
-    #    output="screen",
-    #)
+    spawn_controller_1 = Node(
+        package="controller_manager",
+        executable="spawner.py",
+        arguments=["FL_hip_joint"],
+        output="screen",
+    )
 
 
     
@@ -113,6 +113,6 @@ def generate_launch_description():
             node_robot_state_publisher,
             spawn_entity,
             spawn_controller,
-       #     spawn_controller_1,
+            spawn_controller_1,
         ]
     )
