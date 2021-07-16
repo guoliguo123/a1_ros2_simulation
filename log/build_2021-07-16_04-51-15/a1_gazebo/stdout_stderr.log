@@ -1,0 +1,39 @@
+[ 50%] Built target unitreeDrawForcePlugin
+[100%] Built target unitreeFootContactPlugin
+-- Install configuration: ""
+-- Up-to-date: /root/try/a1_ros2_simulation/install/a1_gazebo/lib/a1_gazebo/libunitreeFootContactPlugin.so
+-- Up-to-date: /root/try/a1_ros2_simulation/install/a1_gazebo/lib/a1_gazebo/libunitreeDrawForcePlugin.so
+-- Up-to-date: /root/try/a1_ros2_simulation/install/a1_gazebo/share/a1_gazebo/launch
+-- Up-to-date: /root/try/a1_ros2_simulation/install/a1_gazebo/share/a1_gazebo/launch/a2.launch.py
+-- Up-to-date: /root/try/a1_ros2_simulation/install/a1_gazebo/share/a1_gazebo/launch/f.launch.py
+-- Up-to-date: /root/try/a1_ros2_simulation/install/a1_gazebo/share/a1_gazebo/launch/normal.launch
+-- Up-to-date: /root/try/a1_ros2_simulation/install/a1_gazebo/share/a1_gazebo/launch/a1.launch.py
+-- Up-to-date: /root/try/a1_ros2_simulation/install/a1_gazebo/share/a1_gazebo/launch/try.launch.py
+-- Up-to-date: /root/try/a1_ros2_simulation/install/a1_gazebo/share/a1_gazebo/launch/rrbot.launch.py
+-- Up-to-date: /root/try/a1_ros2_simulation/install/a1_gazebo/share/a1_gazebo/launch/__pycache__
+-- Up-to-date: /root/try/a1_ros2_simulation/install/a1_gazebo/share/a1_gazebo/launch/__pycache__/a1.launch.cpython-38.pyc
+-- Up-to-date: /root/try/a1_ros2_simulation/install/a1_gazebo/share/a1_gazebo/launch/tt.launch.py
+-- Up-to-date: /root/try/a1_ros2_simulation/install/a1_gazebo/share/a1_gazebo/worlds
+-- Up-to-date: /root/try/a1_ros2_simulation/install/a1_gazebo/share/a1_gazebo/worlds/building_editor_models
+-- Up-to-date: /root/try/a1_ros2_simulation/install/a1_gazebo/share/a1_gazebo/worlds/building_editor_models/stairs
+-- Up-to-date: /root/try/a1_ros2_simulation/install/a1_gazebo/share/a1_gazebo/worlds/building_editor_models/stairs/model.sdf
+-- Up-to-date: /root/try/a1_ros2_simulation/install/a1_gazebo/share/a1_gazebo/worlds/building_editor_models/stairs/model.config
+-- Up-to-date: /root/try/a1_ros2_simulation/install/a1_gazebo/share/a1_gazebo/worlds/earth.world
+-- Up-to-date: /root/try/a1_ros2_simulation/install/a1_gazebo/share/a1_gazebo/worlds/stairs.world
+-- Up-to-date: /root/try/a1_ros2_simulation/install/a1_gazebo/share/a1_gazebo/worlds/space.world
+-- Up-to-date: /root/try/a1_ros2_simulation/install/a1_gazebo/share/ament_index/resource_index/package_run_dependencies/a1_gazebo
+-- Up-to-date: /root/try/a1_ros2_simulation/install/a1_gazebo/share/ament_index/resource_index/parent_prefix_path/a1_gazebo
+-- Up-to-date: /root/try/a1_ros2_simulation/install/a1_gazebo/share/a1_gazebo/environment/ament_prefix_path.sh
+-- Up-to-date: /root/try/a1_ros2_simulation/install/a1_gazebo/share/a1_gazebo/environment/ament_prefix_path.dsv
+-- Up-to-date: /root/try/a1_ros2_simulation/install/a1_gazebo/share/a1_gazebo/environment/path.sh
+-- Up-to-date: /root/try/a1_ros2_simulation/install/a1_gazebo/share/a1_gazebo/environment/path.dsv
+-- Up-to-date: /root/try/a1_ros2_simulation/install/a1_gazebo/share/a1_gazebo/local_setup.bash
+-- Up-to-date: /root/try/a1_ros2_simulation/install/a1_gazebo/share/a1_gazebo/local_setup.sh
+-- Up-to-date: /root/try/a1_ros2_simulation/install/a1_gazebo/share/a1_gazebo/local_setup.zsh
+-- Up-to-date: /root/try/a1_ros2_simulation/install/a1_gazebo/share/a1_gazebo/local_setup.dsv
+-- Installing: /root/try/a1_ros2_simulation/install/a1_gazebo/share/a1_gazebo/package.dsv
+-- Up-to-date: /root/try/a1_ros2_simulation/install/a1_gazebo/share/ament_index/resource_index/packages/a1_gazebo
+-- Up-to-date: /root/try/a1_ros2_simulation/install/a1_gazebo/share/a1_gazebo/cmake/ament_cmake_export_include_directories-extras.cmake
+-- Up-to-date: /root/try/a1_ros2_simulation/install/a1_gazebo/share/a1_gazebo/cmake/a1_gazeboConfig.cmake
+-- Up-to-date: /root/try/a1_ros2_simulation/install/a1_gazebo/share/a1_gazebo/cmake/a1_gazeboConfig-version.cmake
+-- Up-to-date: /root/try/a1_ros2_simulation/install/a1_gazebo/share/a1_gazebo/package.xml

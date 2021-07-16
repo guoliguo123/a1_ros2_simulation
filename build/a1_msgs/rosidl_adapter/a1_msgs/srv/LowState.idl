@@ -1,0 +1,63 @@
+// generated from rosidl_adapter/resource/srv.idl.em
+// with input from a1_msgs/srv/LowState.srv
+// generated code does not contain a copyright notice
+
+#include "a1_msgs/msg/IMU.idl"
+#include "a1_msgs/msg/MotorState.idl"
+
+module a1_msgs {
+  module srv {
+    struct LowState_Request {
+      uint8 structure_needs_at_least_one_member;
+    };
+    typedef a1_msgs::msg::MotorState a1_msgs__msg__MotorState;
+    typedef a1_msgs__msg__MotorState a1_msgs__msg__MotorState__20[20];
+    typedef int16 int16__4[4];
+    typedef uint8 uint8__40[40];
+    struct LowState_Response {
+      uint8 levelflag;
+
+      @verbatim (language="comment", text=
+        " Old version Aliengo does not have")
+      uint16 commversion;
+
+      @verbatim (language="comment", text=
+        " Old version Aliengo does not have")
+      uint16 robotid;
+
+      @verbatim (language="comment", text=
+        " Old version Aliengo does not have")
+      uint32 sn;
+
+      @verbatim (language="comment", text=
+        " Old version Aliengo does not have")
+      uint8 bandwidth;
+
+      a1_msgs::msg::IMU imu;
+
+      a1_msgs__msg__MotorState__20 motorstate;
+
+      @verbatim (language="comment", text=
+        " force sensors     # Old version Aliengo is different")
+      int16__4 footforce;
+
+      @verbatim (language="comment", text=
+        " force sensors     # Old version Aliengo does not have")
+      int16__4 footforceest;
+
+      @verbatim (language="comment", text=
+        " reference real-time from motion controller (unit: us)")
+      uint32 tick;
+
+      @verbatim (language="comment", text=
+        " wireless commands")
+      uint8__40 wirelessremote;
+
+      @verbatim (language="comment", text=
+        " Old version Aliengo does not have")
+      uint32 reserve;
+
+      uint32 crc;
+    };
+  };
+};

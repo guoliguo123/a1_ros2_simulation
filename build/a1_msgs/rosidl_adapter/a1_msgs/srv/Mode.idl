@@ -1,0 +1,15 @@
+// generated from rosidl_adapter/resource/srv.idl.em
+// with input from a1_msgs/srv/Mode.srv
+// generated code does not contain a copyright notice
+
+
+module a1_msgs {
+  module srv {
+    struct Mode_Request {
+      uint8 mode;
+    };
+    struct Mode_Response {
+      boolean value;
+    };
+  };
+};

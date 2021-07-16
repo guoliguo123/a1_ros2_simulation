@@ -1,0 +1,2 @@
+/usr/bin/ar qc libunitree_legged_control.a  CMakeFiles/unitree_legged_control.dir/src/a1_joint.cpp.o
+/usr/bin/ranlib libunitree_legged_control.a

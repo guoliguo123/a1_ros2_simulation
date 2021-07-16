@@ -1,0 +1,176 @@
+[0.013s] Invoking command in '/root/try/a1_ros2_simulation/build/a1_gazebo': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake /root/try/a1_ros2_simulation/a1_gazebo -DCMAKE_INSTALL_PREFIX=/root/try/a1_ros2_simulation/install/a1_gazebo
+[0.062s] -- The C compiler identification is GNU 9.3.0
+[0.106s] -- The CXX compiler identification is GNU 9.3.0
+[0.110s] -- Check for working C compiler: /usr/bin/cc
+[0.168s] -- Check for working C compiler: /usr/bin/cc -- works
+[0.169s] -- Detecting C compiler ABI info
+[0.228s] -- Detecting C compiler ABI info - done
+[0.238s] -- Detecting C compile features
+[0.239s] -- Detecting C compile features - done
+[0.241s] -- Check for working CXX compiler: /usr/bin/c++
+[0.307s] -- Check for working CXX compiler: /usr/bin/c++ -- works
+[0.308s] -- Detecting CXX compiler ABI info
+[0.377s] -- Detecting CXX compiler ABI info - done
+[0.388s] -- Detecting CXX compile features
+[0.388s] -- Detecting CXX compile features - done
+[0.390s] -- Found ament_cmake: 0.9.8 (/opt/ros/foxy/share/ament_cmake/cmake)
+[0.411s] -- Found PythonInterp: /usr/bin/python3 (found suitable version "3.8.10", minimum required is "3") 
+[0.411s] -- Using PYTHON_EXECUTABLE: /usr/bin/python3
+[0.577s] -- Found controller_manager: 0.6.1 (/opt/ros/foxy/share/controller_manager/cmake)
+[0.617s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[0.623s] -- Found rosidl_adapter: 1.2.1 (/opt/ros/foxy/share/rosidl_adapter/cmake)
+[0.691s] -- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "1.1.1f")  
+[0.715s] -- Found FastRTPS: /opt/ros/foxy/include  
+[0.784s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[1.300s] -- Found rmw_implementation_cmake: 1.0.3 (/opt/ros/foxy/share/rmw_implementation_cmake/cmake)
+[1.301s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[1.301s] -- Looking for pthread.h
+[1.363s] -- Looking for pthread.h - found
+[1.363s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+[1.428s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Failed
+[1.428s] -- Looking for pthread_create in pthreads
+[1.481s] -- Looking for pthread_create in pthreads - not found
+[1.481s] -- Looking for pthread_create in pthread
+[1.540s] -- Looking for pthread_create in pthread - found
+[1.541s] -- Found Threads: TRUE  
+[1.777s] -- Found joint_state_controller: 0.3.1 (/opt/ros/foxy/share/joint_state_controller/cmake)
+[1.951s] -- Found robot_state_publisher: 2.4.2 (/opt/ros/foxy/share/robot_state_publisher/cmake)
+[1.954s] -- Found eigen3_cmake_module: 0.1.1 (/opt/ros/foxy/share/eigen3_cmake_module/cmake)
+[1.957s] -- Found Eigen3: TRUE (found version "3.3.7") 
+[2.278s] -- Found gazebo_ros: 3.5.3 (/opt/ros/foxy/share/gazebo_ros/cmake)
+[2.288s] -- Found PkgConfig: /usr/bin/pkg-config (found version "0.29.1") 
+[2.289s] -- Checking for module 'bullet>=2.82'
+[2.305s] --   Found bullet, version 2.88
+[2.403s] -- Found ccd: /usr/include (found suitable version "2.0", minimum required is "2.0") 
+[2.453s] -- Found fcl: /usr/include (found suitable version "0.5.0", minimum required is "0.3.2") 
+[2.505s] -- Found assimp: /usr/include (found version "5.0.0") 
+[2.525s] -- Found DART: /usr/include (Required is at least version "6.6") found components: dart 
+[2.548s] -- Found Boost: /usr/lib/x86_64-linux-gnu/cmake/Boost-1.71.0/BoostConfig.cmake (found suitable version "1.71.0", minimum required is "1.40.0") found components: thread system filesystem program_options regex iostreams date_time 
+[2.562s] -- Found Protobuf: /usr/lib/x86_64-linux-gnu/libprotobuf.so;-lpthread (found version "3.6.1") 
+[2.566s] -- Looking for ignition-math6 -- found version 6.8.0
+[2.571s] -- Searching for dependencies of ignition-math6
+[2.572s] -- Looking for OGRE...
+[2.573s] -- OGRE_PREFIX_WATCH changed.
+[2.577s] -- Checking for module 'OGRE'
+[2.590s] --   Found OGRE, version 1.9.0
+[2.625s] -- Found Ogre Ghadamon (1.9.0)
+[2.631s] -- Found OGRE: optimized;/usr/lib/x86_64-linux-gnu/libOgreMain.so;debug;/usr/lib/x86_64-linux-gnu/libOgreMain.so
+[2.640s] -- Looking for OGRE_Paging...
+[2.645s] -- Found OGRE_Paging: optimized;/usr/lib/x86_64-linux-gnu/libOgrePaging.so;debug;/usr/lib/x86_64-linux-gnu/libOgrePaging.so
+[2.645s] -- Looking for OGRE_Terrain...
+[2.650s] -- Found OGRE_Terrain: optimized;/usr/lib/x86_64-linux-gnu/libOgreTerrain.so;debug;/usr/lib/x86_64-linux-gnu/libOgreTerrain.so
+[2.650s] -- Looking for OGRE_Property...
+[2.655s] -- Found OGRE_Property: optimized;/usr/lib/x86_64-linux-gnu/libOgreProperty.so;debug;/usr/lib/x86_64-linux-gnu/libOgreProperty.so
+[2.655s] -- Looking for OGRE_RTShaderSystem...
+[2.661s] -- Found OGRE_RTShaderSystem: optimized;/usr/lib/x86_64-linux-gnu/libOgreRTShaderSystem.so;debug;/usr/lib/x86_64-linux-gnu/libOgreRTShaderSystem.so
+[2.661s] -- Looking for OGRE_Volume...
+[2.665s] -- Found OGRE_Volume: optimized;/usr/lib/x86_64-linux-gnu/libOgreVolume.so;debug;/usr/lib/x86_64-linux-gnu/libOgreVolume.so
+[2.665s] -- Looking for OGRE_Overlay...
+[2.670s] -- Found OGRE_Overlay: optimized;/usr/lib/x86_64-linux-gnu/libOgreOverlay.so;debug;/usr/lib/x86_64-linux-gnu/libOgreOverlay.so
+[2.774s] -- Looking for ignition-math6 -- found version 6.8.0
+[2.776s] -- Looking for ignition-transport8 -- found version 8.2.0
+[2.776s] -- Searching for dependencies of ignition-transport8
+[2.792s] -- Found Protobuf: /usr/lib/x86_64-linux-gnu/libprotobuf.so;-lpthread (found suitable version "3.6.1", minimum required is "3") 
+[2.800s] -- Config-file not installed for ZeroMQ -- checking for pkg-config
+[2.805s] -- Checking for module 'libzmq >= 4'
+[2.818s] --   Found libzmq , version 4.3.2
+[2.855s] -- Found ZeroMQ: TRUE (Required is at least version "4") 
+[2.859s] -- Checking for module 'uuid'
+[2.871s] --   Found uuid, version 2.34.0
+[2.907s] -- Found UUID: TRUE  
+[2.909s] -- Looking for ignition-msgs5 -- found version 5.7.0
+[2.909s] -- Searching for dependencies of ignition-msgs5
+[2.926s] -- Looking for ignition-math6 -- found version 6.8.0
+[2.931s] -- Checking for module 'tinyxml2'
+[2.944s] --   Found tinyxml2, version 6.2.0
+[2.978s] -- Looking for ignition-msgs5 -- found version 5.7.0
+[2.979s] -- Looking for ignition-common3 -- found version 3.13.2
+[2.980s] -- Searching for dependencies of ignition-common3
+[2.980s] -- Looking for dlfcn.h - found
+[2.981s] -- Looking for libdl - found
+[2.982s] -- Found DL: TRUE  
+[2.989s] -- Searching for <ignition-common3> component [graphics]
+[2.990s] -- Looking for ignition-common3-graphics -- found version 3.13.2
+[2.991s] -- Searching for dependencies of ignition-common3-graphics
+[2.991s] -- Looking for ignition-math6 -- found version 6.8.0
+[2.993s] -- Looking for ignition-fuel_tools4 -- found version 4.3.0
+[2.994s] -- Searching for dependencies of ignition-fuel_tools4
+[3.057s] -- Found CURL: /usr/lib/x86_64-linux-gnu/libcurl.so (found version "7.68.0")  
+[3.064s] -- Checking for module 'jsoncpp'
+[3.077s] --   Found jsoncpp, version 1.7.4
+[3.113s] -- Found JSONCPP: TRUE  
+[3.117s] -- Checking for module 'libzip'
+[3.131s] --   Found libzip, version 1.5.1
+[3.163s] -- Found ZIP: TRUE  
+[3.163s] -- Looking for ignition-common3 -- found version 3.13.2
+[3.164s] -- Looking for ignition-msgs5 -- found version 5.7.0
+[3.165s] -- Gazebo version: 11.5
+[3.170s] -- Found a1_msgs: 0.0.1 (/root/try/a1_ros2_simulation/install/a1_msgs/share/a1_msgs/cmake)
+[3.178s] -- Found ament_lint_auto: 0.9.6 (/opt/ros/foxy/share/ament_lint_auto/cmake)
+[3.245s] -- Added test 'copyright' to check source files copyright and LICENSE
+[3.246s] -- Added test 'cppcheck' to perform static code analysis on C / C++ code
+[3.247s] -- Configured cppcheck include dirs: /root/try/a1_ros2_simulation/a1_gazebo/include
+[3.247s] -- Configured cppcheck exclude dirs and/or files: 
+[3.248s] -- Added test 'cpplint' to check C / C++ code against the Google style
+[3.248s] -- Configured cpplint exclude dirs and/or files: 
+[3.249s] -- Added test 'flake8' to check Python code syntax and style conventions
+[3.249s] -- Added test 'lint_cmake' to check CMake code style
+[3.250s] -- Added test 'pep257' to check Python code against some of the style conventions in PEP 257
+[3.251s] -- Added test 'uncrustify' to check C / C++ code style
+[3.251s] -- Configured uncrustify additional arguments: 
+[3.251s] -- Added test 'xmllint' to check XML markup files
+[3.255s] -- Configuring done
+[3.287s] -- Generating done
+[3.289s] -- Build files have been written to: /root/try/a1_ros2_simulation/build/a1_gazebo
+[3.299s] Invoked command in '/root/try/a1_ros2_simulation/build/a1_gazebo' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake /root/try/a1_ros2_simulation/a1_gazebo -DCMAKE_INSTALL_PREFIX=/root/try/a1_ros2_simulation/install/a1_gazebo
+[3.302s] Invoking command in '/root/try/a1_ros2_simulation/build/a1_gazebo': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --build /root/try/a1_ros2_simulation/build/a1_gazebo -- -j4 -l4
+[3.342s] [35m[1mScanning dependencies of target unitreeDrawForcePlugin[0m
+[3.342s] [35m[1mScanning dependencies of target unitreeFootContactPlugin[0m
+[3.599s] [ 25%] [32mBuilding CXX object CMakeFiles/unitreeFootContactPlugin.dir/plugin/foot_contact_plugin.cc.o[0m
+[3.611s] [ 50%] [32mBuilding CXX object CMakeFiles/unitreeDrawForcePlugin.dir/plugin/draw_force_plugin.cc.o[0m
+[22.003s] [ 75%] [32m[1mLinking CXX shared library libunitreeFootContactPlugin.so[0m
+[22.732s] [ 75%] Built target unitreeFootContactPlugin
+[37.230s] [100%] [32m[1mLinking CXX shared library libunitreeDrawForcePlugin.so[0m
+[37.711s] [100%] Built target unitreeDrawForcePlugin
+[37.870s] Invoked command in '/root/try/a1_ros2_simulation/build/a1_gazebo' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --build /root/try/a1_ros2_simulation/build/a1_gazebo -- -j4 -l4
+[37.995s] Invoking command in '/root/try/a1_ros2_simulation/build/a1_gazebo': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --install /root/try/a1_ros2_simulation/build/a1_gazebo
+[38.003s] -- Install configuration: ""
+[38.003s] -- Installing: /root/try/a1_ros2_simulation/install/a1_gazebo/lib/a1_gazebo/libunitreeFootContactPlugin.so
+[38.006s] -- Set runtime path of "/root/try/a1_ros2_simulation/install/a1_gazebo/lib/a1_gazebo/libunitreeFootContactPlugin.so" to ""
+[38.006s] -- Installing: /root/try/a1_ros2_simulation/install/a1_gazebo/lib/a1_gazebo/libunitreeDrawForcePlugin.so
+[38.011s] -- Set runtime path of "/root/try/a1_ros2_simulation/install/a1_gazebo/lib/a1_gazebo/libunitreeDrawForcePlugin.so" to ""
+[38.012s] -- Installing: /root/try/a1_ros2_simulation/install/a1_gazebo/share/a1_gazebo/launch
+[38.012s] -- Installing: /root/try/a1_ros2_simulation/install/a1_gazebo/share/a1_gazebo/launch/a2.launch.py
+[38.013s] -- Installing: /root/try/a1_ros2_simulation/install/a1_gazebo/share/a1_gazebo/launch/f.launch.py
+[38.013s] -- Installing: /root/try/a1_ros2_simulation/install/a1_gazebo/share/a1_gazebo/launch/normal.launch
+[38.014s] -- Installing: /root/try/a1_ros2_simulation/install/a1_gazebo/share/a1_gazebo/launch/a1.launch.py
+[38.014s] -- Installing: /root/try/a1_ros2_simulation/install/a1_gazebo/share/a1_gazebo/launch/try.launch.py
+[38.015s] -- Installing: /root/try/a1_ros2_simulation/install/a1_gazebo/share/a1_gazebo/launch/rrbot.launch.py
+[38.016s] -- Installing: /root/try/a1_ros2_simulation/install/a1_gazebo/share/a1_gazebo/launch/__pycache__
+[38.017s] -- Installing: /root/try/a1_ros2_simulation/install/a1_gazebo/share/a1_gazebo/launch/__pycache__/a1.launch.cpython-38.pyc
+[38.017s] -- Installing: /root/try/a1_ros2_simulation/install/a1_gazebo/share/a1_gazebo/launch/tt.launch.py
+[38.018s] -- Installing: /root/try/a1_ros2_simulation/install/a1_gazebo/share/a1_gazebo/worlds
+[38.018s] -- Installing: /root/try/a1_ros2_simulation/install/a1_gazebo/share/a1_gazebo/worlds/building_editor_models
+[38.019s] -- Installing: /root/try/a1_ros2_simulation/install/a1_gazebo/share/a1_gazebo/worlds/building_editor_models/stairs
+[38.020s] -- Installing: /root/try/a1_ros2_simulation/install/a1_gazebo/share/a1_gazebo/worlds/building_editor_models/stairs/model.sdf
+[38.020s] -- Installing: /root/try/a1_ros2_simulation/install/a1_gazebo/share/a1_gazebo/worlds/building_editor_models/stairs/model.config
+[38.021s] -- Installing: /root/try/a1_ros2_simulation/install/a1_gazebo/share/a1_gazebo/worlds/earth.world
+[38.021s] -- Installing: /root/try/a1_ros2_simulation/install/a1_gazebo/share/a1_gazebo/worlds/stairs.world
+[38.022s] -- Installing: /root/try/a1_ros2_simulation/install/a1_gazebo/share/a1_gazebo/worlds/space.world
+[38.024s] -- Installing: /root/try/a1_ros2_simulation/install/a1_gazebo/share/ament_index/resource_index/package_run_dependencies/a1_gazebo
+[38.025s] -- Installing: /root/try/a1_ros2_simulation/install/a1_gazebo/share/ament_index/resource_index/parent_prefix_path/a1_gazebo
+[38.029s] -- Installing: /root/try/a1_ros2_simulation/install/a1_gazebo/share/a1_gazebo/environment/ament_prefix_path.sh
+[38.030s] -- Installing: /root/try/a1_ros2_simulation/install/a1_gazebo/share/a1_gazebo/environment/ament_prefix_path.dsv
+[38.030s] -- Installing: /root/try/a1_ros2_simulation/install/a1_gazebo/share/a1_gazebo/environment/path.sh
+[38.031s] -- Installing: /root/try/a1_ros2_simulation/install/a1_gazebo/share/a1_gazebo/environment/path.dsv
+[38.032s] -- Installing: /root/try/a1_ros2_simulation/install/a1_gazebo/share/a1_gazebo/local_setup.bash
+[38.032s] -- Installing: /root/try/a1_ros2_simulation/install/a1_gazebo/share/a1_gazebo/local_setup.sh
+[38.033s] -- Installing: /root/try/a1_ros2_simulation/install/a1_gazebo/share/a1_gazebo/local_setup.zsh
+[38.033s] -- Installing: /root/try/a1_ros2_simulation/install/a1_gazebo/share/a1_gazebo/local_setup.dsv
+[38.034s] -- Installing: /root/try/a1_ros2_simulation/install/a1_gazebo/share/a1_gazebo/package.dsv
+[38.034s] -- Installing: /root/try/a1_ros2_simulation/install/a1_gazebo/share/ament_index/resource_index/packages/a1_gazebo
+[38.035s] -- Installing: /root/try/a1_ros2_simulation/install/a1_gazebo/share/a1_gazebo/cmake/ament_cmake_export_include_directories-extras.cmake
+[38.036s] -- Installing: /root/try/a1_ros2_simulation/install/a1_gazebo/share/a1_gazebo/cmake/a1_gazeboConfig.cmake
+[38.036s] -- Installing: /root/try/a1_ros2_simulation/install/a1_gazebo/share/a1_gazebo/cmake/a1_gazeboConfig-version.cmake
+[38.037s] -- Installing: /root/try/a1_ros2_simulation/install/a1_gazebo/share/a1_gazebo/package.xml
+[38.044s] Invoked command in '/root/try/a1_ros2_simulation/build/a1_gazebo' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --install /root/try/a1_ros2_simulation/build/a1_gazebo

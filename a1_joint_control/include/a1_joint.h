@@ -57,7 +57,7 @@
 #define PosStopF  (2.146E+9f)
 #define VelStopF  (16000.0f)
 
-namespace unitree_legged_control
+namespace a1_joint_control
 {
     class UnitreeJointController: public controller_interface::ControllerInterface
     {

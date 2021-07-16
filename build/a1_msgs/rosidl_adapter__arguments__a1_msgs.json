@@ -1,0 +1,20 @@
+{
+  "package_name": "a1_msgs",
+  "non_idl_tuples": [
+    "/root/try/a1_ros2_simulation/a1_msgs:msg/Cartesian.msg",
+    "/root/try/a1_ros2_simulation/a1_msgs:msg/IMU.msg",
+    "/root/try/a1_ros2_simulation/a1_msgs:msg/MotorState.msg",
+    "/root/try/a1_ros2_simulation/a1_msgs:msg/Pose.msg",
+    "/root/try/a1_ros2_simulation/a1_msgs:msg/LowCmd.msg",
+    "/root/try/a1_ros2_simulation/a1_msgs:msg/HighCmd.msg",
+    "/root/try/a1_ros2_simulation/a1_msgs:msg/LowState.msg",
+    "/root/try/a1_ros2_simulation/a1_msgs:msg/MotorCmd.msg",
+    "/root/try/a1_ros2_simulation/a1_msgs:msg/LED.msg",
+    "/root/try/a1_ros2_simulation/a1_msgs:msg/HighState.msg",
+    "/root/try/a1_ros2_simulation/a1_msgs:srv/Cartesian.srv",
+    "/root/try/a1_ros2_simulation/a1_msgs:srv/HighState.srv",
+    "/root/try/a1_ros2_simulation/a1_msgs:srv/Imu.srv",
+    "/root/try/a1_ros2_simulation/a1_msgs:srv/Mode.srv",
+    "/root/try/a1_ros2_simulation/a1_msgs:srv/LowState.srv"
+  ]
+}

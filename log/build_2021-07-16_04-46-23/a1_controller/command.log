@@ -1,0 +1,6 @@
+Invoking command in '/root/try/a1_ros2_simulation/build/a1_controller': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake /root/try/a1_ros2_simulation/a1_controller -DCMAKE_INSTALL_PREFIX=/root/try/a1_ros2_simulation/install/a1_controller
+Invoked command in '/root/try/a1_ros2_simulation/build/a1_controller' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake /root/try/a1_ros2_simulation/a1_controller -DCMAKE_INSTALL_PREFIX=/root/try/a1_ros2_simulation/install/a1_controller
+Invoking command in '/root/try/a1_ros2_simulation/build/a1_controller': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --build /root/try/a1_ros2_simulation/build/a1_controller -- -j4 -l4
+Invoked command in '/root/try/a1_ros2_simulation/build/a1_controller' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --build /root/try/a1_ros2_simulation/build/a1_controller -- -j4 -l4
+Invoking command in '/root/try/a1_ros2_simulation/build/a1_controller': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --install /root/try/a1_ros2_simulation/build/a1_controller
+Invoked command in '/root/try/a1_ros2_simulation/build/a1_controller' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --install /root/try/a1_ros2_simulation/build/a1_controller

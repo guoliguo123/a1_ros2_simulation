@@ -1,0 +1,43 @@
+file(REMOVE_RECURSE
+  "../rosidl_generator_py/a1_msgs/_a1_msgs_s.ep.rosidl_typesupport_c.c"
+  "../rosidl_generator_py/a1_msgs/_a1_msgs_s.ep.rosidl_typesupport_fastrtps_c.c"
+  "../rosidl_generator_py/a1_msgs/_a1_msgs_s.ep.rosidl_typesupport_introspection_c.c"
+  "../rosidl_generator_py/a1_msgs/msg/__init__.py"
+  "../rosidl_generator_py/a1_msgs/msg/_cartesian.py"
+  "../rosidl_generator_py/a1_msgs/msg/_cartesian_s.c"
+  "../rosidl_generator_py/a1_msgs/msg/_high_cmd.py"
+  "../rosidl_generator_py/a1_msgs/msg/_high_cmd_s.c"
+  "../rosidl_generator_py/a1_msgs/msg/_high_state.py"
+  "../rosidl_generator_py/a1_msgs/msg/_high_state_s.c"
+  "../rosidl_generator_py/a1_msgs/msg/_imu.py"
+  "../rosidl_generator_py/a1_msgs/msg/_imu_s.c"
+  "../rosidl_generator_py/a1_msgs/msg/_led.py"
+  "../rosidl_generator_py/a1_msgs/msg/_led_s.c"
+  "../rosidl_generator_py/a1_msgs/msg/_low_cmd.py"
+  "../rosidl_generator_py/a1_msgs/msg/_low_cmd_s.c"
+  "../rosidl_generator_py/a1_msgs/msg/_low_state.py"
+  "../rosidl_generator_py/a1_msgs/msg/_low_state_s.c"
+  "../rosidl_generator_py/a1_msgs/msg/_motor_cmd.py"
+  "../rosidl_generator_py/a1_msgs/msg/_motor_cmd_s.c"
+  "../rosidl_generator_py/a1_msgs/msg/_motor_state.py"
+  "../rosidl_generator_py/a1_msgs/msg/_motor_state_s.c"
+  "../rosidl_generator_py/a1_msgs/msg/_pose.py"
+  "../rosidl_generator_py/a1_msgs/msg/_pose_s.c"
+  "../rosidl_generator_py/a1_msgs/srv/__init__.py"
+  "../rosidl_generator_py/a1_msgs/srv/_cartesian.py"
+  "../rosidl_generator_py/a1_msgs/srv/_cartesian_s.c"
+  "../rosidl_generator_py/a1_msgs/srv/_high_state.py"
+  "../rosidl_generator_py/a1_msgs/srv/_high_state_s.c"
+  "../rosidl_generator_py/a1_msgs/srv/_imu.py"
+  "../rosidl_generator_py/a1_msgs/srv/_imu_s.c"
+  "../rosidl_generator_py/a1_msgs/srv/_low_state.py"
+  "../rosidl_generator_py/a1_msgs/srv/_low_state_s.c"
+  "../rosidl_generator_py/a1_msgs/srv/_mode.py"
+  "../rosidl_generator_py/a1_msgs/srv/_mode_s.c"
+  "CMakeFiles/a1_msgs__py"
+)
+
+# Per-language clean rules from dependency scanning.
+foreach(lang )
+  include(CMakeFiles/a1_msgs__py.dir/cmake_clean_${lang}.cmake OPTIONAL)
+endforeach()

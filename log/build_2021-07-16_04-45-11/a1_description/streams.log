@@ -1,0 +1,102 @@
+[0.011s] Invoking command in '/root/try/a1_ros2_simulation/build/a1_description': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake /root/try/a1_ros2_simulation/a1_description -DCMAKE_INSTALL_PREFIX=/root/try/a1_ros2_simulation/install/a1_description
+[0.061s] -- The C compiler identification is GNU 9.3.0
+[0.104s] -- The CXX compiler identification is GNU 9.3.0
+[0.108s] -- Check for working C compiler: /usr/bin/cc
+[0.171s] -- Check for working C compiler: /usr/bin/cc -- works
+[0.171s] -- Detecting C compiler ABI info
+[0.231s] -- Detecting C compiler ABI info - done
+[0.242s] -- Detecting C compile features
+[0.242s] -- Detecting C compile features - done
+[0.244s] -- Check for working CXX compiler: /usr/bin/c++
+[0.313s] -- Check for working CXX compiler: /usr/bin/c++ -- works
+[0.314s] -- Detecting CXX compiler ABI info
+[0.384s] -- Detecting CXX compiler ABI info - done
+[0.394s] -- Detecting CXX compile features
+[0.394s] -- Detecting CXX compile features - done
+[0.396s] -- Found ament_cmake: 0.9.8 (/opt/ros/foxy/share/ament_cmake/cmake)
+[0.416s] -- Found PythonInterp: /usr/bin/python3 (found suitable version "3.8.10", minimum required is "3") 
+[0.416s] -- Using PYTHON_EXECUTABLE: /usr/bin/python3
+[0.577s] -- Found ament_lint_auto: 0.9.6 (/opt/ros/foxy/share/ament_lint_auto/cmake)
+[0.639s] -- Added test 'copyright' to check source files copyright and LICENSE
+[0.642s] -- Added test 'flake8' to check Python code syntax and style conventions
+[0.643s] -- Added test 'lint_cmake' to check CMake code style
+[0.643s] -- Added test 'pep257' to check Python code against some of the style conventions in PEP 257
+[0.645s] -- Added test 'xmllint' to check XML markup files
+[0.646s] -- Configuring done
+[0.648s] -- Generating done
+[0.649s] -- Build files have been written to: /root/try/a1_ros2_simulation/build/a1_description
+[0.652s] Invoked command in '/root/try/a1_ros2_simulation/build/a1_description' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake /root/try/a1_ros2_simulation/a1_description -DCMAKE_INSTALL_PREFIX=/root/try/a1_ros2_simulation/install/a1_description
+[0.654s] Invoking command in '/root/try/a1_ros2_simulation/build/a1_description': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --build /root/try/a1_ros2_simulation/build/a1_description -- -j4 -l4
+[0.691s] Invoked command in '/root/try/a1_ros2_simulation/build/a1_description' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --build /root/try/a1_ros2_simulation/build/a1_description -- -j4 -l4
+[0.722s] Invoking command in '/root/try/a1_ros2_simulation/build/a1_description': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --install /root/try/a1_ros2_simulation/build/a1_description
+[0.730s] -- Install configuration: ""
+[0.730s] -- Installing: /root/try/a1_ros2_simulation/install/a1_description/share/a1_description/launch
+[0.730s] -- Installing: /root/try/a1_ros2_simulation/install/a1_description/share/a1_description/launch/model.sdf
+[0.732s] -- Installing: /root/try/a1_ros2_simulation/install/a1_description/share/a1_description/launch/dd.launch.py
+[0.732s] -- Installing: /root/try/a1_ros2_simulation/install/a1_description/share/a1_description/launch/demo.launch.py
+[0.733s] -- Installing: /root/try/a1_ros2_simulation/install/a1_description/share/a1_description/launch/model.config
+[0.733s] -- Installing: /root/try/a1_ros2_simulation/install/a1_description/share/a1_description/launch/normal.launch.py
+[0.734s] -- Installing: /root/try/a1_ros2_simulation/install/a1_description/share/a1_description/urdf
+[0.734s] -- Installing: /root/try/a1_ros2_simulation/install/a1_description/share/a1_description/urdf/model.sdf
+[0.735s] -- Installing: /root/try/a1_ros2_simulation/install/a1_description/share/a1_description/urdf/a1.urdf.xml
+[0.736s] -- Installing: /root/try/a1_ros2_simulation/install/a1_description/share/a1_description/urdf/a1_description.gv
+[0.736s] -- Installing: /root/try/a1_ros2_simulation/install/a1_description/share/a1_description/urdf/a1.urdf
+[0.737s] -- Installing: /root/try/a1_ros2_simulation/install/a1_description/share/a1_description/urdf/a1_description.pdf
+[0.738s] -- Installing: /root/try/a1_ros2_simulation/install/a1_description/share/a1_description/urdf/model.config
+[0.738s] -- Installing: /root/try/a1_ros2_simulation/install/a1_description/share/a1_description/xacro
+[0.738s] -- Installing: /root/try/a1_ros2_simulation/install/a1_description/share/a1_description/xacro/a1.normal
+[0.739s] -- Installing: /root/try/a1_ros2_simulation/install/a1_description/share/a1_description/xacro/model.sdf
+[0.739s] -- Installing: /root/try/a1_ros2_simulation/install/a1_description/share/a1_description/xacro/a1.backup
+[0.739s] -- Installing: /root/try/a1_ros2_simulation/install/a1_description/share/a1_description/xacro/a1.ros2_control.xacro.bak
+[0.740s] -- Installing: /root/try/a1_ros2_simulation/install/a1_description/share/a1_description/xacro/a1.ros2_control.xacro
+[0.740s] -- Installing: /root/try/a1_ros2_simulation/install/a1_description/share/a1_description/xacro/leg.xacro
+[0.740s] -- Installing: /root/try/a1_ros2_simulation/install/a1_description/share/a1_description/xacro/robot.xacro
+[0.741s] -- Installing: /root/try/a1_ros2_simulation/install/a1_description/share/a1_description/xacro/model.config
+[0.741s] -- Installing: /root/try/a1_ros2_simulation/install/a1_description/share/a1_description/xacro/transmission.xacro
+[0.741s] -- Installing: /root/try/a1_ros2_simulation/install/a1_description/share/a1_description/xacro/const.xacro
+[0.742s] -- Installing: /root/try/a1_ros2_simulation/install/a1_description/share/a1_description/xacro/materials.xacro
+[0.742s] -- Installing: /root/try/a1_ros2_simulation/install/a1_description/share/a1_description/xacro/gazebo.xacro
+[0.742s] -- Installing: /root/try/a1_ros2_simulation/install/a1_description/share/a1_description/xacro/stairs.xacro
+[0.743s] -- Installing: /root/try/a1_ros2_simulation/install/a1_description/share/a1_description/meshes
+[0.743s] -- Installing: /root/try/a1_ros2_simulation/install/a1_description/share/a1_description/meshes/calf.dae
+[0.747s] -- Installing: /root/try/a1_ros2_simulation/install/a1_description/share/a1_description/meshes/thigh.dae
+[0.749s] -- Installing: /root/try/a1_ros2_simulation/install/a1_description/share/a1_description/meshes/thigh_mirror.dae
+[0.752s] -- Installing: /root/try/a1_ros2_simulation/install/a1_description/share/a1_description/meshes/trunk_A1.png
+[0.753s] -- Installing: /root/try/a1_ros2_simulation/install/a1_description/share/a1_description/meshes/trunk.dae
+[0.761s] -- Installing: /root/try/a1_ros2_simulation/install/a1_description/share/a1_description/meshes/hip.dae
+[0.763s] -- Installing: /root/try/a1_ros2_simulation/install/a1_description/share/a1_description/rviz
+[0.763s] -- Installing: /root/try/a1_ros2_simulation/install/a1_description/share/a1_description/rviz/model.sdf
+[0.764s] -- Installing: /root/try/a1_ros2_simulation/install/a1_description/share/a1_description/rviz/nav2_default_view.rviz
+[0.765s] -- Installing: /root/try/a1_ros2_simulation/install/a1_description/share/a1_description/rviz/model.config
+[0.765s] -- Installing: /root/try/a1_ros2_simulation/install/a1_description/share/a1_description/rviz/check_joint.rviz
+[0.765s] -- Installing: /root/try/a1_ros2_simulation/install/a1_description/share/a1_description/config
+[0.765s] -- Installing: /root/try/a1_ros2_simulation/install/a1_description/share/a1_description/config/robot_control.yaml.first
+[0.766s] -- Installing: /root/try/a1_ros2_simulation/install/a1_description/share/a1_description/config/robot_control.yaml.bak
+[0.766s] -- Installing: /root/try/a1_ros2_simulation/install/a1_description/share/a1_description/config/robot_control.yaml.ll
+[0.767s] -- Installing: /root/try/a1_ros2_simulation/install/a1_description/share/a1_description/config/robot_control.yaml
+[0.767s] -- Installing: /root/try/a1_ros2_simulation/install/a1_description/share/a1_description/models
+[0.767s] -- Installing: /root/try/a1_ros2_simulation/install/a1_description/share/a1_description/models/model.sdf
+[0.768s] -- Installing: /root/try/a1_ros2_simulation/install/a1_description/share/a1_description/models/meshes
+[0.768s] -- Installing: /root/try/a1_ros2_simulation/install/a1_description/share/a1_description/models/meshes/calf.dae
+[0.772s] -- Installing: /root/try/a1_ros2_simulation/install/a1_description/share/a1_description/models/meshes/thigh.dae
+[0.775s] -- Installing: /root/try/a1_ros2_simulation/install/a1_description/share/a1_description/models/meshes/thigh_mirror.dae
+[0.778s] -- Installing: /root/try/a1_ros2_simulation/install/a1_description/share/a1_description/models/meshes/trunk_A1.png
+[0.779s] -- Installing: /root/try/a1_ros2_simulation/install/a1_description/share/a1_description/models/meshes/trunk.dae
+[0.787s] -- Installing: /root/try/a1_ros2_simulation/install/a1_description/share/a1_description/models/meshes/hip.dae
+[0.789s] -- Installing: /root/try/a1_ros2_simulation/install/a1_description/share/a1_description/models/model.config
+[0.789s] -- Installing: /root/try/a1_ros2_simulation/install/a1_description/share/ament_index/resource_index/package_run_dependencies/a1_description
+[0.790s] -- Installing: /root/try/a1_ros2_simulation/install/a1_description/share/ament_index/resource_index/parent_prefix_path/a1_description
+[0.790s] -- Installing: /root/try/a1_ros2_simulation/install/a1_description/share/a1_description/environment/ament_prefix_path.sh
+[0.790s] -- Installing: /root/try/a1_ros2_simulation/install/a1_description/share/a1_description/environment/ament_prefix_path.dsv
+[0.790s] -- Installing: /root/try/a1_ros2_simulation/install/a1_description/share/a1_description/environment/path.sh
+[0.791s] -- Installing: /root/try/a1_ros2_simulation/install/a1_description/share/a1_description/environment/path.dsv
+[0.791s] -- Installing: /root/try/a1_ros2_simulation/install/a1_description/share/a1_description/local_setup.bash
+[0.791s] -- Installing: /root/try/a1_ros2_simulation/install/a1_description/share/a1_description/local_setup.sh
+[0.791s] -- Installing: /root/try/a1_ros2_simulation/install/a1_description/share/a1_description/local_setup.zsh
+[0.792s] -- Installing: /root/try/a1_ros2_simulation/install/a1_description/share/a1_description/local_setup.dsv
+[0.792s] -- Installing: /root/try/a1_ros2_simulation/install/a1_description/share/a1_description/package.dsv
+[0.792s] -- Installing: /root/try/a1_ros2_simulation/install/a1_description/share/ament_index/resource_index/packages/a1_description
+[0.792s] -- Installing: /root/try/a1_ros2_simulation/install/a1_description/share/a1_description/cmake/a1_descriptionConfig.cmake
+[0.793s] -- Installing: /root/try/a1_ros2_simulation/install/a1_description/share/a1_description/cmake/a1_descriptionConfig-version.cmake
+[0.793s] -- Installing: /root/try/a1_ros2_simulation/install/a1_description/share/a1_description/package.xml
+[0.795s] Invoked command in '/root/try/a1_ros2_simulation/build/a1_description' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --install /root/try/a1_ros2_simulation/build/a1_description

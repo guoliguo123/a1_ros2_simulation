@@ -1,0 +1,161 @@
+[0.031s] Invoking command in '/root/try/a1_ros2_simulation/build/a1_controller': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake /root/try/a1_ros2_simulation/a1_controller -DCMAKE_INSTALL_PREFIX=/root/try/a1_ros2_simulation/install/a1_controller
+[0.171s] -- The C compiler identification is GNU 9.3.0
+[0.242s] -- The CXX compiler identification is GNU 9.3.0
+[0.254s] -- Check for working C compiler: /usr/bin/cc
+[0.318s] -- Check for working C compiler: /usr/bin/cc -- works
+[0.321s] -- Detecting C compiler ABI info
+[0.380s] -- Detecting C compiler ABI info - done
+[0.391s] -- Detecting C compile features
+[0.392s] -- Detecting C compile features - done
+[0.396s] -- Check for working CXX compiler: /usr/bin/c++
+[0.464s] -- Check for working CXX compiler: /usr/bin/c++ -- works
+[0.465s] -- Detecting CXX compiler ABI info
+[0.535s] -- Detecting CXX compiler ABI info - done
+[0.544s] -- Detecting CXX compile features
+[0.545s] -- Detecting CXX compile features - done
+[0.565s] -- Found ament_cmake: 0.9.8 (/opt/ros/foxy/share/ament_cmake/cmake)
+[0.597s] -- Found PythonInterp: /usr/bin/python3 (found suitable version "3.8.10", minimum required is "3") 
+[0.597s] -- Using PYTHON_EXECUTABLE: /usr/bin/python3
+[0.813s] -- Found std_msgs: 2.0.4 (/opt/ros/foxy/share/std_msgs/cmake)
+[0.874s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[0.889s] -- Found rosidl_adapter: 1.2.1 (/opt/ros/foxy/share/rosidl_adapter/cmake)
+[1.006s] -- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "1.1.1f")  
+[1.034s] -- Found FastRTPS: /opt/ros/foxy/include  
+[1.133s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[1.206s] -- Found rclcpp: 2.3.1 (/opt/ros/foxy/share/rclcpp/cmake)
+[1.291s] -- Found rmw_implementation_cmake: 1.0.3 (/opt/ros/foxy/share/rmw_implementation_cmake/cmake)
+[1.294s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[1.296s] -- Looking for pthread.h
+[1.376s] -- Looking for pthread.h - found
+[1.376s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+[1.439s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Failed
+[1.439s] -- Looking for pthread_create in pthreads
+[1.492s] -- Looking for pthread_create in pthreads - not found
+[1.492s] -- Looking for pthread_create in pthread
+[1.557s] -- Looking for pthread_create in pthread - found
+[1.558s] -- Found Threads: TRUE  
+[1.737s] -- Found controller_manager: 0.6.1 (/opt/ros/foxy/share/controller_manager/cmake)
+[2.364s] -- Found joint_state_controller: 0.3.1 (/opt/ros/foxy/share/joint_state_controller/cmake)
+[2.546s] -- Found robot_state_publisher: 2.4.2 (/opt/ros/foxy/share/robot_state_publisher/cmake)
+[2.555s] -- Found eigen3_cmake_module: 0.1.1 (/opt/ros/foxy/share/eigen3_cmake_module/cmake)
+[2.562s] -- Found Eigen3: TRUE (found version "3.3.7") 
+[2.952s] -- Found gazebo_ros: 3.5.3 (/opt/ros/foxy/share/gazebo_ros/cmake)
+[2.970s] -- Found PkgConfig: /usr/bin/pkg-config (found version "0.29.1") 
+[2.971s] -- Checking for module 'bullet>=2.82'
+[2.984s] --   Found bullet, version 2.88
+[3.097s] -- Found ccd: /usr/include (found suitable version "2.0", minimum required is "2.0") 
+[3.148s] -- Found fcl: /usr/include (found suitable version "0.5.0", minimum required is "0.3.2") 
+[3.202s] -- Found assimp: /usr/include (found version "5.0.0") 
+[3.249s] -- Found DART: /usr/include (Required is at least version "6.6") found components: dart 
+[3.287s] -- Found Boost: /usr/lib/x86_64-linux-gnu/cmake/Boost-1.71.0/BoostConfig.cmake (found suitable version "1.71.0", minimum required is "1.40.0") found components: thread system filesystem program_options regex iostreams date_time 
+[3.316s] -- Found Protobuf: /usr/lib/x86_64-linux-gnu/libprotobuf.so;-lpthread (found version "3.6.1") 
+[3.325s] -- Looking for ignition-math6 -- found version 6.8.0
+[3.338s] -- Searching for dependencies of ignition-math6
+[3.342s] -- Looking for OGRE...
+[3.343s] -- OGRE_PREFIX_WATCH changed.
+[3.347s] -- Checking for module 'OGRE'
+[3.361s] --   Found OGRE, version 1.9.0
+[3.397s] -- Found Ogre Ghadamon (1.9.0)
+[3.404s] -- Found OGRE: optimized;/usr/lib/x86_64-linux-gnu/libOgreMain.so;debug;/usr/lib/x86_64-linux-gnu/libOgreMain.so
+[3.414s] -- Looking for OGRE_Paging...
+[3.423s] -- Found OGRE_Paging: optimized;/usr/lib/x86_64-linux-gnu/libOgrePaging.so;debug;/usr/lib/x86_64-linux-gnu/libOgrePaging.so
+[3.423s] -- Looking for OGRE_Terrain...
+[3.428s] -- Found OGRE_Terrain: optimized;/usr/lib/x86_64-linux-gnu/libOgreTerrain.so;debug;/usr/lib/x86_64-linux-gnu/libOgreTerrain.so
+[3.428s] -- Looking for OGRE_Property...
+[3.433s] -- Found OGRE_Property: optimized;/usr/lib/x86_64-linux-gnu/libOgreProperty.so;debug;/usr/lib/x86_64-linux-gnu/libOgreProperty.so
+[3.433s] -- Looking for OGRE_RTShaderSystem...
+[3.440s] -- Found OGRE_RTShaderSystem: optimized;/usr/lib/x86_64-linux-gnu/libOgreRTShaderSystem.so;debug;/usr/lib/x86_64-linux-gnu/libOgreRTShaderSystem.so
+[3.440s] -- Looking for OGRE_Volume...
+[3.445s] -- Found OGRE_Volume: optimized;/usr/lib/x86_64-linux-gnu/libOgreVolume.so;debug;/usr/lib/x86_64-linux-gnu/libOgreVolume.so
+[3.445s] -- Looking for OGRE_Overlay...
+[3.451s] -- Found OGRE_Overlay: optimized;/usr/lib/x86_64-linux-gnu/libOgreOverlay.so;debug;/usr/lib/x86_64-linux-gnu/libOgreOverlay.so
+[3.567s] -- Looking for ignition-math6 -- found version 6.8.0
+[3.570s] -- Looking for ignition-transport8 -- found version 8.2.0
+[3.571s] -- Searching for dependencies of ignition-transport8
+[3.587s] -- Found Protobuf: /usr/lib/x86_64-linux-gnu/libprotobuf.so;-lpthread (found suitable version "3.6.1", minimum required is "3") 
+[3.597s] -- Config-file not installed for ZeroMQ -- checking for pkg-config
+[3.601s] -- Checking for module 'libzmq >= 4'
+[3.618s] --   Found libzmq , version 4.3.2
+[3.654s] -- Found ZeroMQ: TRUE (Required is at least version "4") 
+[3.660s] -- Checking for module 'uuid'
+[3.675s] --   Found uuid, version 2.34.0
+[3.709s] -- Found UUID: TRUE  
+[3.713s] -- Looking for ignition-msgs5 -- found version 5.7.0
+[3.714s] -- Searching for dependencies of ignition-msgs5
+[3.732s] -- Looking for ignition-math6 -- found version 6.8.0
+[3.737s] -- Checking for module 'tinyxml2'
+[3.750s] --   Found tinyxml2, version 6.2.0
+[3.788s] -- Looking for ignition-msgs5 -- found version 5.7.0
+[3.792s] -- Looking for ignition-common3 -- found version 3.13.2
+[3.792s] -- Searching for dependencies of ignition-common3
+[3.793s] -- Looking for dlfcn.h - found
+[3.794s] -- Looking for libdl - found
+[3.795s] -- Found DL: TRUE  
+[3.802s] -- Searching for <ignition-common3> component [graphics]
+[3.806s] -- Looking for ignition-common3-graphics -- found version 3.13.2
+[3.806s] -- Searching for dependencies of ignition-common3-graphics
+[3.806s] -- Looking for ignition-math6 -- found version 6.8.0
+[3.812s] -- Looking for ignition-fuel_tools4 -- found version 4.3.0
+[3.812s] -- Searching for dependencies of ignition-fuel_tools4
+[3.879s] -- Found CURL: /usr/lib/x86_64-linux-gnu/libcurl.so (found version "7.68.0")  
+[3.890s] -- Checking for module 'jsoncpp'
+[3.903s] --   Found jsoncpp, version 1.7.4
+[3.938s] -- Found JSONCPP: TRUE  
+[3.944s] -- Checking for module 'libzip'
+[3.956s] --   Found libzip, version 1.5.1
+[3.991s] -- Found ZIP: TRUE  
+[3.991s] -- Looking for ignition-common3 -- found version 3.13.2
+[3.992s] -- Looking for ignition-msgs5 -- found version 5.7.0
+[3.994s] -- Gazebo version: 11.5
+[4.001s] -- Found a1_msgs: 0.0.1 (/root/try/a1_ros2_simulation/install/a1_msgs/share/a1_msgs/cmake)
+[4.017s] -- Found gazebo_msgs: 3.5.3 (/opt/ros/foxy/share/gazebo_msgs/cmake)
+[4.146s] -- Found ament_lint_auto: 0.9.6 (/opt/ros/foxy/share/ament_lint_auto/cmake)
+[4.242s] -- Added test 'copyright' to check source files copyright and LICENSE
+[4.244s] -- Added test 'cppcheck' to perform static code analysis on C / C++ code
+[4.245s] -- Configured cppcheck include dirs: /root/try/a1_ros2_simulation/a1_controller/include
+[4.245s] -- Configured cppcheck exclude dirs and/or files: 
+[4.246s] -- Added test 'cpplint' to check C / C++ code against the Google style
+[4.246s] -- Configured cpplint exclude dirs and/or files: 
+[4.247s] -- Added test 'lint_cmake' to check CMake code style
+[4.249s] -- Added test 'uncrustify' to check C / C++ code style
+[4.249s] -- Configured uncrustify additional arguments: 
+[4.250s] -- Added test 'xmllint' to check XML markup files
+[4.258s] -- Configuring done
+[4.274s] -- Generating done
+[4.276s] -- Build files have been written to: /root/try/a1_ros2_simulation/build/a1_controller
+[4.288s] Invoked command in '/root/try/a1_ros2_simulation/build/a1_controller' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake /root/try/a1_ros2_simulation/a1_controller -DCMAKE_INSTALL_PREFIX=/root/try/a1_ros2_simulation/install/a1_controller
+[4.289s] Invoking command in '/root/try/a1_ros2_simulation/build/a1_controller': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --build /root/try/a1_ros2_simulation/build/a1_controller -- -j4 -l4
+[4.332s] [35m[1mScanning dependencies of target unitree_move[0m
+[4.332s] [35m[1mScanning dependencies of target unitree_servo[0m
+[4.490s] [ 20%] [32mBuilding CXX object CMakeFiles/unitree_move.dir/src/move_publisher.cpp.o[0m
+[4.514s] [ 40%] [32mBuilding CXX object CMakeFiles/unitree_servo.dir/src/body.cpp.o[0m
+[4.520s] [ 60%] [32mBuilding CXX object CMakeFiles/unitree_servo.dir/src/servo.cpp.o[0m
+[7.081s] [ 80%] [32m[1mLinking CXX executable unitree_move[0m
+[7.254s] [ 80%] Built target unitree_move
+[11.760s] [100%] [32m[1mLinking CXX executable unitree_servo[0m
+[12.105s] [100%] Built target unitree_servo
+[12.117s] Invoked command in '/root/try/a1_ros2_simulation/build/a1_controller' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --build /root/try/a1_ros2_simulation/build/a1_controller -- -j4 -l4
+[12.155s] Invoking command in '/root/try/a1_ros2_simulation/build/a1_controller': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --install /root/try/a1_ros2_simulation/build/a1_controller
+[12.163s] -- Install configuration: ""
+[12.163s] -- Installing: /root/try/a1_ros2_simulation/install/a1_controller/lib/a1_controller/unitree_move
+[12.164s] -- Set runtime path of "/root/try/a1_ros2_simulation/install/a1_controller/lib/a1_controller/unitree_move" to ""
+[12.164s] -- Installing: /root/try/a1_ros2_simulation/install/a1_controller/lib/a1_controller/unitree_servo
+[12.168s] -- Set runtime path of "/root/try/a1_ros2_simulation/install/a1_controller/lib/a1_controller/unitree_servo" to ""
+[12.168s] -- Installing: /root/try/a1_ros2_simulation/install/a1_controller/share/ament_index/resource_index/package_run_dependencies/a1_controller
+[12.168s] -- Installing: /root/try/a1_ros2_simulation/install/a1_controller/share/ament_index/resource_index/parent_prefix_path/a1_controller
+[12.168s] -- Installing: /root/try/a1_ros2_simulation/install/a1_controller/share/a1_controller/environment/ament_prefix_path.sh
+[12.169s] -- Installing: /root/try/a1_ros2_simulation/install/a1_controller/share/a1_controller/environment/ament_prefix_path.dsv
+[12.169s] -- Installing: /root/try/a1_ros2_simulation/install/a1_controller/share/a1_controller/environment/path.sh
+[12.169s] -- Installing: /root/try/a1_ros2_simulation/install/a1_controller/share/a1_controller/environment/path.dsv
+[12.169s] -- Installing: /root/try/a1_ros2_simulation/install/a1_controller/share/a1_controller/local_setup.bash
+[12.169s] -- Installing: /root/try/a1_ros2_simulation/install/a1_controller/share/a1_controller/local_setup.sh
+[12.169s] -- Installing: /root/try/a1_ros2_simulation/install/a1_controller/share/a1_controller/local_setup.zsh
+[12.169s] -- Installing: /root/try/a1_ros2_simulation/install/a1_controller/share/a1_controller/local_setup.dsv
+[12.170s] -- Installing: /root/try/a1_ros2_simulation/install/a1_controller/share/a1_controller/package.dsv
+[12.170s] -- Installing: /root/try/a1_ros2_simulation/install/a1_controller/share/ament_index/resource_index/packages/a1_controller
+[12.170s] -- Installing: /root/try/a1_ros2_simulation/install/a1_controller/share/a1_controller/cmake/ament_cmake_export_include_directories-extras.cmake
+[12.170s] -- Installing: /root/try/a1_ros2_simulation/install/a1_controller/share/a1_controller/cmake/ament_cmake_export_dependencies-extras.cmake
+[12.170s] -- Installing: /root/try/a1_ros2_simulation/install/a1_controller/share/a1_controller/cmake/a1_controllerConfig.cmake
+[12.170s] -- Installing: /root/try/a1_ros2_simulation/install/a1_controller/share/a1_controller/cmake/a1_controllerConfig-version.cmake
+[12.171s] -- Installing: /root/try/a1_ros2_simulation/install/a1_controller/share/a1_controller/package.xml
+[12.173s] Invoked command in '/root/try/a1_ros2_simulation/build/a1_controller' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --install /root/try/a1_ros2_simulation/build/a1_controller

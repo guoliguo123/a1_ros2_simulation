@@ -29,7 +29,7 @@
 #include "std_msgs/msg/header.hpp"
 using std::placeholders::_1;
 namespace ph = std::placeholders;
-namespace unitree_legged_control
+namespace a1_joint_control
 {
 
     UnitreeJointController::UnitreeJointController()
@@ -357,7 +357,7 @@ namespace unitree_legged_control
 #include "pluginlib/class_list_macros.hpp"
 #include "class_loader/register_macro.hpp"
 //PLUGINLIB_EXPORT_CLASS(
-//        unitree_legged_control::UnitreeJointController, controller_interface::ControllerInterface)
+//        a1_joint_control::UnitreeJointController, controller_interface::ControllerInterface)
 
 CLASS_LOADER_REGISTER_CLASS(
-        unitree_legged_control::UnitreeJointController, controller_interface::ControllerInterface)
+        a1_joint_control::UnitreeJointController, controller_interface::ControllerInterface)
