@@ -1,4 +1,0 @@
-source;share/a1_joint_control/local_setup.bash
-source;share/a1_joint_control/local_setup.dsv
-source;share/a1_joint_control/local_setup.sh
-source;share/a1_joint_control/local_setup.zsh

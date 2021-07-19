@@ -41,13 +41,13 @@ set(dependencies
 include_directories(include ${ament_INCLUDE_DIRS} ${Boost_INCLUDE_DIR})
 link_directories(include ${ament_LIB_DIRS} lib)
 
-add_library(unitree_legged_control
+add_library(a1_joint_control SHARED
         src/a1_joint.cpp)
 
-ament_target_dependencies(unitree_legged_control ${dependencies})
-target_link_libraries(unitree_legged_control ${ament_LIBRARIES} unitree_joint_control_tool)
+ament_target_dependencies(a1_joint_control ${dependencies})
+target_link_libraries(a1_joint_control ${ament_LIBRARIES} unitree_joint_control_tool)
 pluginlib_export_plugin_description_file(controller_interface unitree_controller_plugins.xml)
-install(TARGETS unitree_legged_control
+install(TARGETS a1_joint_control
   LIBRARY DESTINATION lib
   RUNTIME DESTINATION bin
   ARCHIVE DESTINATION lib

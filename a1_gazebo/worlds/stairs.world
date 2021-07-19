@@ -111,6 +111,8 @@
         <include>
             <uri>model:///root/try/ros2_ws/src/a1_gazebo/worlds/building_editor_models/stairs</uri>
         </include>
-
+        <plugin name="a1_dog" filename="liba1_joint_control.so">
+          <joint_name>FL_hip_joint</joint_name>
+        </plugin>
     </world>
 </sdf>
