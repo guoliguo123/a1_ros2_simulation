@@ -354,7 +354,7 @@ namespace a1_joint_control
 
 }  // namespace joint_trajectory_controller
 
-#include "pluginlib/class_list_macros.hpp"
+//#include "pluginlib/class_list_macros.hpp"
 #include "class_loader/register_macro.hpp"
 //PLUGINLIB_EXPORT_CLASS(
 //        a1_joint_control::UnitreeJointController, controller_interface::ControllerInterface)
