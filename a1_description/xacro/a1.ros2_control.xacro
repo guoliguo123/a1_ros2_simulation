@@ -3,8 +3,6 @@
   <ros2_control name="GazeboSystem" type="system">
     <hardware>
       <plugin>gazebo_ros2_control/GazeboSystem</plugin>
-      <param name="write_for_sec">0.001</param>
-      <param name="read_for_sec">0.001</param>
     </hardware>
     <!--left front leg hip-->
     <joint name="FL_hip_joint">

@@ -18,11 +18,6 @@
 
     <!-- Debug mode will hung up the robot, use "true" or "false" to switch it. -->
     
-    <!--<ros2_control name="GazeboSystem" type="system">
-    <hardware>
-      <plugin>gazebo_ros2_control/GazeboSystem</plugin>
-    </hardware>-->
-
     <link name="base">
         <visual>
             <origin rpy="0 0 0" xyz="0 0 0"/>
