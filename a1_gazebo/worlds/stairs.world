@@ -109,7 +109,7 @@
         </model>
 
         <include>
-            <uri>model:///root/try/ros2_ws/src/a1_gazebo/worlds/building_editor_models/stairs</uri>
+            <uri>model:///root/try/mobot/a1_ros2_simulation/a1_gazebo/worlds/building_editor_models/stairs</uri>
         </include>
         <plugin name="a1_dog" filename="liba1_joint_control.so">
           <joint_name>FL_hip_joint</joint_name>

@@ -1,25 +1,34 @@
 <?xml version="1.0"?>
-<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <package format="3">
   <name>a1_joint_control</name>
-  <version>0.0.0</version>
-  <description>TODO: Package description</description>
-  <maintainer email="13351616795@163.com">root</maintainer>
-  <license>TODO: License declaration</license>
+  <version>0.4.0</version>
+  <description>Controller for a differential drive mobile base.</description>
+  <maintainer email="bence.magyar.robotics@gmail.com">Bence Magyar</maintainer>
+  <maintainer email="jordan.palacios@pal-robotics.com">Jordan Palacios</maintainer>
+
+  <license>Apache License 2.0</license>
 
   <buildtool_depend>ament_cmake</buildtool_depend>
 
   <depend>controller_interface</depend>
+  <depend>geometry_msgs</depend>
   <depend>hardware_interface</depend>
-  <depend>pluginlib</depend>
+  <depend>nav_msgs</depend>
   <depend>rclcpp</depend>
+  <depend>rclcpp_lifecycle</depend>
   <depend>realtime_tools</depend>
+  <depend>tf2</depend>
+  <depend>tf2_msgs</depend>
   <depend>a1_msgs</depend>
 
+  <build_depend>pluginlib</build_depend>
+
+  <test_depend>ament_cmake_gmock</test_depend>
   <test_depend>ament_lint_auto</test_depend>
   <test_depend>ament_lint_common</test_depend>
+  <test_depend>controller_manager</test_depend>
+
   <export>
     <build_type>ament_cmake</build_type>
-    <controller_interface plugin="${prefix}/unitree_controller_plugins.xml"/>
   </export>
 </package>
