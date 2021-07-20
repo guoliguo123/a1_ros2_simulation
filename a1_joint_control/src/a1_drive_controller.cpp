@@ -96,18 +96,18 @@ void UnitreeJointController::setCommandCB(const a1_msgs::msg::MotorCmd::UniquePt
 }
 void UnitreeJointController::setGains(const double &p, const double &i, const double &d, const double &i_max, const double &i_min, const bool &antiwindup)
 {
-    //pid_controller_.setGains(p,i,d,i_max,i_min,antiwindup);
+    pid_controller_.setGains(p,i,d,i_max,i_min,antiwindup);
 }
 
 void UnitreeJointController::getGains(double &p, double &i, double &d, double &i_max, double &i_min, bool &antiwindup)
 {
-    //pid_controller_.getGains(p,i,d,i_max,i_min,antiwindup);
+    pid_controller_.getGains(p,i,d,i_max,i_min,antiwindup);
 }
 
 void UnitreeJointController::getGains(double &p, double &i, double &d, double &i_max, double &i_min)
 {
     bool dummy;
-    //pid_controller_.getGains(p,i,d,i_max,i_min,dummy);
+    pid_controller_.getGains(p,i,d,i_max,i_min,dummy);
 }
 
 UnitreeJointController::UnitreeJointController()
@@ -202,7 +202,6 @@ CallbackReturn UnitreeJointController::on_configure(const rclcpp_lifecycle::Stat
   // update parameters
 
   FL_joint_names_ = node_->get_parameter("FL_joint_names").as_string_array();
-#if 0
   FR_joint_names_ = node_->get_parameter("FR_joint_names").as_string_array();
   RL_joint_names_ = node_->get_parameter("RL_joint_names").as_string_array();
   RR_joint_names_ = node_->get_parameter("RR_joint_names").as_string_array();
@@ -214,7 +213,6 @@ CallbackReturn UnitreeJointController::on_configure(const rclcpp_lifecycle::Stat
       FR_joint_names_.size());
     return CallbackReturn::ERROR;
   }
-#endif
 
   if (FL_joint_names_.empty()) {
     RCLCPP_ERROR(logger, "Wheel names parameters are empty!");
@@ -242,7 +240,7 @@ CallbackReturn UnitreeJointController::on_activate(const rclcpp_lifecycle::State
   std::cout << "-------A1 dog activate begin-------" << std::endl;
   const auto fl_result =
     configure_side("FL", FL_joint_names_, registered_left_front_handles_);
-#if 0
+
   const auto fr_result =
     configure_side("FR", FR_joint_names_, registered_right_front_handles_);
   const auto rl_result =
@@ -262,7 +260,7 @@ CallbackReturn UnitreeJointController::on_activate(const rclcpp_lifecycle::State
       "Either left wheel interfaces, right wheel interfaces are non existant");
     return CallbackReturn::ERROR;
   }
-#endif
+
   RCLCPP_DEBUG(node_->get_logger(), "Subscriber and publisher are now active.");
   return CallbackReturn::SUCCESS;
 }
