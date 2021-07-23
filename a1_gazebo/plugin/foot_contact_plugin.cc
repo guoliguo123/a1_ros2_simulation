@@ -28,7 +28,7 @@ namespace gazebo
             }
             this->contact_namespace = "contact";
             //this->rosnode = new ros::NodeHandle(this->contact_namespace);
-            auto A1_node = rclcpp::Node::make_shared(this->contact_namespace);
+            A1_node = rclcpp::Node::make_shared(this->contact_namespace);
             // add "visual" is for the same name of draw node
             this->force_pub = A1_node->create_publisher<geometry_msgs::msg::WrenchStamped>("/visual/"+_sensor->Name()+"/the_force", 100);
             // Connect to the sensor update event.
@@ -41,7 +41,7 @@ namespace gazebo
             RCLCPP_INFO(rclcpp::get_logger("foot"), "Load %s plugin.", _sensor->Name().c_str());
         }
 
-        private:
+
         void OnUpdate()
         {
             msgs::Contacts contacts;
@@ -71,12 +71,14 @@ namespace gazebo
                 Fy = 0;
                 Fz = 0;
             }
-            else{
+            else {
                 force.wrench.force.x = 3;
                 force.wrench.force.y = 3;
                 force.wrench.force.z = 3;
             }
             this->force_pub->publish(force);
+            rclcpp::spin_some(A1_node);
+            usleep(1000);
         }
 
         private:
@@ -85,6 +87,7 @@ namespace gazebo
             std::string contact_namespace;
             sensors::ContactSensorPtr parentSensor;      
             geometry_msgs::msg::WrenchStamped force;
+            std::shared_ptr<rclcpp::Node> A1_node;
             unsigned int count = 0;
             double Fx=0, Fy=0, Fz=0;
     };

@@ -9,7 +9,6 @@
         </plugin>
     </gazebo>
 
-    <!-- Show the trajectory of trunk center. -->
     <gazebo>
         <plugin name="3dplot" filename="libLinkPlot3DPlugin.so">
             <frequency>10</frequency>
@@ -21,24 +20,15 @@
         </plugin>
     </gazebo>
 
-    <!-- Show the trajectory of foot. You can add another trajectory about another foot. -->
-    <!-- <gazebo>
-        <plugin name="3dplot" filename="libLinkPlot3DPlugin.so">
-            <frequency>100</frequency>
-            <plot>
-                <link>FL_foot</link>
-                <pose>0 0 0 0 0 0</pose>
-                <material>Gazebo/Green</material>
-            </plot>
-        </plugin>
-    </gazebo> -->
-
-    <!--<gazebo>
+    <gazebo reference="trunk">
         <plugin filename="libgazebo_ros_force.so" name="gazebo_ros_force">
-            <bodyName>trunk</bodyName>
-            <topicName>/apply_force/trunk</topicName>
+            <ros>
+                <namespace>demo</namespace>
+                <argument>/apply_force/trunk:=trunk</argument>
+            </ros>
+            <link_name>trunk</link_name>
         </plugin>
-    </gazebo>-->
+    </gazebo>
 
     <gazebo reference="imu_link">
         <gravity>true</gravity>
@@ -48,8 +38,11 @@
             <visualize>true</visualize>
             <topic>__default_topic__</topic>
             <plugin filename="libgazebo_ros_imu_sensor.so" name="imu_plugin">
-                <topicName>trunk_imu</topicName>
-                <bodyName>imu_link</bodyName>
+                <ros>
+                    <namespace>/imu</namespace>
+                    <remapping>~/out:=imu_data</remapping>
+                </ros>
+                <link_name>imu_link</link_name>
                 <updateRateHZ>1000.0</updateRateHZ>
                 <gaussianNoise>0.0</gaussianNoise>
                 <xyzOffset>0 0 0</xyzOffset>

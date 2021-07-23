@@ -63,7 +63,7 @@ namespace gazebo
             auto A1_node = rclcpp::Node::make_shared(this->visual_namespace);
 
             force_sub = A1_node->create_subscription<geometry_msgs::msg::WrenchStamped>(
-                    this->topic_name+"/"+"the_force", 30, std::bind(&UnitreeDrawForcePlugin::GetForceCallback,this , ph::_1));
+                        "/visual/"+this->topic_name+"/"+"the_force", 30, std::bind(&UnitreeDrawForcePlugin::GetForceCallback,this , ph::_1));
             this->update_connection = event::Events::ConnectPreRender(boost::bind(&UnitreeDrawForcePlugin::OnUpdate, this));
             RCLCPP_INFO(rclcpp::get_logger("draw"), "Load %s Draw Force plugin.", this->topic_name.c_str());
         }
