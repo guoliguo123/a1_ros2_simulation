@@ -1,0 +1,113 @@
+1.diffbot_diff_drive_controller.yaml
+文件中创建controller
+diff_base_controller
+	type: diff_drive_controller/DiffDriveController
+
+2.ros2_controllers中CMakeLists.txt中
+
+什么意思
+pluginlib_export_plugin_description_file(controller_interface diff_drive_plugin.xml)
+
+controller代码框架：
+1.构造函数DiffDriveController::DiffDriveController()
+
+2.DifferDriveController::init()  
+声明了一些参数，这里的参数与通过yaml文件中进行配置
+
+3.DifferDriverController::command_interface_configuration()  
+不清楚是谁来调用的，用于遍历所有的配置了命令的joint_name存储到局部变量，并将结果返回
+
+4.DifferDriverController::state_interface_configuration()
+不清楚是谁来调用的，用于遍历所有的配置了state的joint_name存储到局部变量，并将结果返回
+
+5.DifferDriverController::update()
+关键函数，应该是由任务轮训调用，更新一些重要的数据信息，比如publish消息等
+6.DifferDriverController::on_configure()
+rclcpp_lifcycle，进行配置操作，如获取变量值、创建pub/sub等功能
+7.DifferDriverController::on_activate()
+节点配置完成后，执行激活操作，更新一些关键流程的标记
+8.DifferDriverController::on_deativate()
+节点生命周期结束，清除关键标记
+9.DifferDriverController::on_clean()
+节点生命周期结束，调用reset
+10.DifferDriverController::on_error()
+出错时，重置node
+11.DifferDriverController::reset()
+清除资源
+12.DifferDriverController::on_shutdown()
+
+13.DifferDriverController::halt()
+14.DifferDriverController::configure_side()
+15.CLASS_LOADER_REGISTER_CLASS(diff_drive_controller::DiffDriveController
+									  controller_interface::ControllerInterface)
+
+    --------------
+    |     user     |
+    --------------
+          |   |  publisher
+          |   |
+          v   v  subscription
+    --------------
+    | contronller |  ---------->用户自行开发controller功能，用于监听user发送过来的消息并处理
+    --------------
+          |   |  注册到Manager
+          |   |
+          v   v
+    --------------
+    |   Manager    | ----------->Manager对controller进行init、command配置、state配置、on_configure      
+    --------------  ----------->on_active、update(配置后轮训update函数，函数内部实现对user发过来的命令
+    				   ----------->处理，处理后realtime_limited_velocity_publisher_发送命令给谁？
+    				                  <realtime_tools::RealtimePublisher>
+
+    --------------
+    | resource M  |
+    --------------
+
+=============================
+
+
+
+Unitree a1 simulation:
+
+a1_controller:
+servo.cpp : 
+
+publish:      /a1_gazebo/FR_hip_controller/command (a1_msgs::msg::MotorCmd)
+                /a1_gazebo/lowState/state              (a1_msgs::msg::LowState)
+
+subscription:
+                /trunk_imu
+                /visual/FR_foot_contact/the_force    (geometry_msgs::msg::WrenchStamped)
+                /a1_gazebo/FR_hip_controller/state   (a1_msgs::msg::LowState)
+
+a1_gazebo:
+draw_force_plugin.cc:
+
+ subscription:
+                /FR_foot_contact/the_force             (geometry_msgs::msg::WrenchStamped)
+
+foot_force_plugin.cc:
+
+ publish:     /visual/FR_foot_contact/the_force     (geometry_msgs::msg::WrenchStamped)
+
+
+a1_joint_control:
+
+ subscription:
+                /joint_wrench                              (geometry_msgs::msg::WrenchStamped)  
+                /command                                    (a1_msgs::msg::MotorCmd)
+ publish:     /state                                       (a1_msgs::msg::MotorState)
+
+机器人仿真两个关键进程交互
+gzserver进程启动过程：
+1.启动foot_force_plugin.cc插件
+2.加载gazebo_ros2_control插件
+  加载config.yaml配置文件并解析文件内容，加载joint
+3.启动controller_manager后启动a1_dog_controller
+
+ 
+gzclient进程（显示机器人图形）：
+1.启动draw_force_plugin.cc插件（只做sub,接收gzserver发过来的消息处理后显示在图形界面上）
+  /FR_foot_contact/the_force             (geometry_msgs::msg::WrenchStamped)
+
+

@@ -254,31 +254,19 @@ int main(int argc, char **argv)
     // ros::Rate loop_rate(1000);
     // the following nodes have been initialized by "gazebo.launch"
     lowState_pub = A1_node->create_publisher<a1_msgs::msg::LowState>("/" + robot_name + "_gazebo/lowState/state", 1);
-    //servo_pub[0]  = A1_node->create_publisher<a1_msgs::msg::MotorCmd>("/" + robot_name + "_gazebo/FR_hip_controller/command", 1);
-    //servo_pub[1]  = A1_node->create_publisher<a1_msgs::msg::MotorCmd>("/" + robot_name + "_gazebo/FR_thigh_controller/command", 1);
-    //servo_pub[2]  = A1_node->create_publisher<a1_msgs::msg::MotorCmd>("/" + robot_name + "_gazebo/FR_calf_controller/command", 1);
-    //servo_pub[3]  = A1_node->create_publisher<a1_msgs::msg::MotorCmd>("/" + robot_name + "_gazebo/FL_hip_controller/command", 1);
-    //servo_pub[4]  = A1_node->create_publisher<a1_msgs::msg::MotorCmd>("/" + robot_name + "_gazebo/FL_thigh_controller/command", 1);
-    //servo_pub[5]  = A1_node->create_publisher<a1_msgs::msg::MotorCmd>("/" + robot_name + "_gazebo/FL_calf_controller/command", 1);
-    //servo_pub[6]  = A1_node->create_publisher<a1_msgs::msg::MotorCmd>("/" + robot_name + "_gazebo/RR_hip_controller/command", 1);
-    //servo_pub[7]  = A1_node->create_publisher<a1_msgs::msg::MotorCmd>("/" + robot_name + "_gazebo/RR_thigh_controller/command", 1);
-    //servo_pub[8]  = A1_node->create_publisher<a1_msgs::msg::MotorCmd>("/" + robot_name + "_gazebo/RR_calf_controller/command", 1);
-    //servo_pub[9]  = A1_node->create_publisher<a1_msgs::msg::MotorCmd>("/" + robot_name + "_gazebo/RL_hip_controller/command", 1);
-    //servo_pub[10] = A1_node->create_publisher<a1_msgs::msg::MotorCmd>("/" + robot_name + "_gazebo/RL_thigh_controller/command", 1);
-    //servo_pub[11] = A1_node->create_publisher<a1_msgs::msg::MotorCmd>("/" + robot_name + "_gazebo/RL_calf_controller/command", 1);
+    servo_pub[0]  = A1_node->create_publisher<a1_msgs::msg::MotorCmd>("/" + robot_name + "_gazebo/FR_hip_controller/command", 1);
+    servo_pub[1]  = A1_node->create_publisher<a1_msgs::msg::MotorCmd>("/" + robot_name + "_gazebo/FR_thigh_controller/command", 1);
+    servo_pub[2]  = A1_node->create_publisher<a1_msgs::msg::MotorCmd>("/" + robot_name + "_gazebo/FR_calf_controller/command", 1);
+    servo_pub[3]  = A1_node->create_publisher<a1_msgs::msg::MotorCmd>("/" + robot_name + "_gazebo/FL_hip_controller/command", 1);
+    servo_pub[4]  = A1_node->create_publisher<a1_msgs::msg::MotorCmd>("/" + robot_name + "_gazebo/FL_thigh_controller/command", 1);
+    servo_pub[5]  = A1_node->create_publisher<a1_msgs::msg::MotorCmd>("/" + robot_name + "_gazebo/FL_calf_controller/command", 1);
+    servo_pub[6]  = A1_node->create_publisher<a1_msgs::msg::MotorCmd>("/" + robot_name + "_gazebo/RR_hip_controller/command", 1);
+    servo_pub[7]  = A1_node->create_publisher<a1_msgs::msg::MotorCmd>("/" + robot_name + "_gazebo/RR_thigh_controller/command", 1);
+    servo_pub[8]  = A1_node->create_publisher<a1_msgs::msg::MotorCmd>("/" + robot_name + "_gazebo/RR_calf_controller/command", 1);
+    servo_pub[9]  = A1_node->create_publisher<a1_msgs::msg::MotorCmd>("/" + robot_name + "_gazebo/RL_hip_controller/command", 1);
+    servo_pub[10] = A1_node->create_publisher<a1_msgs::msg::MotorCmd>("/" + robot_name + "_gazebo/RL_thigh_controller/command", 1);
+    servo_pub[11] = A1_node->create_publisher<a1_msgs::msg::MotorCmd>("/" + robot_name + "_gazebo/RL_calf_controller/command", 1);
 
-    servo_pub[0]  = A1_node->create_publisher<a1_msgs::msg::MotorCmd>("command", 1);
-    servo_pub[1]  = A1_node->create_publisher<a1_msgs::msg::MotorCmd>("command", 1);
-    servo_pub[2]  = A1_node->create_publisher<a1_msgs::msg::MotorCmd>("command", 1);
-    servo_pub[3]  = A1_node->create_publisher<a1_msgs::msg::MotorCmd>("command", 1);
-    servo_pub[4]  = A1_node->create_publisher<a1_msgs::msg::MotorCmd>("command", 1);
-    servo_pub[5]  = A1_node->create_publisher<a1_msgs::msg::MotorCmd>("command", 1);
-    servo_pub[6]  = A1_node->create_publisher<a1_msgs::msg::MotorCmd>("command", 1);
-    servo_pub[7]  = A1_node->create_publisher<a1_msgs::msg::MotorCmd>("command", 1);
-    servo_pub[8]  = A1_node->create_publisher<a1_msgs::msg::MotorCmd>("command", 1);
-    servo_pub[9]  = A1_node->create_publisher<a1_msgs::msg::MotorCmd>("command", 1);
-    servo_pub[10] = A1_node->create_publisher<a1_msgs::msg::MotorCmd>("command", 1);
-    servo_pub[11] = A1_node->create_publisher<a1_msgs::msg::MotorCmd>("command", 1);
     cout << "=== create publish over ===" << endl;
     motion_init();
 

@@ -92,8 +92,7 @@ void UnitreeJointController::setCommandCB(const a1_msgs::msg::MotorCmd::UniquePt
     // the writeFromNonRT can be used in RT, if you have the guarantee that
     //  * no non-rt thread is calling the same function (we're not subscribing to ros callbacks)
     //  * there is only one single rt thread
-
-    command.writeFromNonRT(lastCmd);
+    //command.writeFromNonRT(lastCmd);
 }
 void UnitreeJointController::setGains(const double &p, const double &i, const double &d, const double &i_max, const double &i_min, const bool &antiwindup)
 {
@@ -195,9 +194,10 @@ controller_interface::return_type UnitreeJointController::update()
   }
 
   double currentPos, currentVel, calcTorque;
-  lastCmd = *(command.readFromRT());
+  //lastCmd = *(command.readFromRT());
     // set command data
-    //if(lastCmd.mode == PMSM) {
+
+    if(lastCmd.mode == PMSM) {
         servoCmd.pos = lastCmd.q;
         positionLimits(servoCmd.pos);
         servoCmd.posStiffness = lastCmd.kp;
@@ -214,7 +214,7 @@ controller_interface::return_type UnitreeJointController::update()
         }
         servoCmd.torque = lastCmd.tau;
         effortLimits(servoCmd.torque);
-    //}
+    }
     if(lastCmd.mode == BRAKE) {
         servoCmd.posStiffness = 0;
         servoCmd.vel = 0;
@@ -231,6 +231,12 @@ controller_interface::return_type UnitreeJointController::update()
     //command.writeFromNonRT(calcTorque);
     lastState.q = currentPos;
     lastState.dq = currentVel;
+
+    if (controller_state_publisher_ && controller_state_publisher_->trylock()) {
+        controller_state_publisher_->msg_.q = lastState.q;
+        controller_state_publisher_->msg_.dq = lastState.dq;
+        controller_state_publisher_->unlockAndPublish();
+    }
   return controller_interface::return_type::OK;
 }
 
