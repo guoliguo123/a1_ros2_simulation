@@ -111,8 +111,8 @@
         <include>
             <uri>model:///root/try/mobot/a1_ros2_simulation/a1_gazebo/worlds/building_editor_models/stairs</uri>
         </include>
-        <plugin name="a1_dog" filename="liba1_joint_control.so">
+        <!--<plugin name="a1_dog" filename="liba1_joint_control.so">
           <joint_name>FL_hip_joint</joint_name>
-        </plugin>
+        </plugin>-->
     </world>
 </sdf>

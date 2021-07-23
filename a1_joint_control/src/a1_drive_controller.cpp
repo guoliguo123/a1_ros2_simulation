@@ -82,7 +82,7 @@ void UnitreeJointController::setTorqueCB(const geometry_msgs::msg::WrenchStamped
 }
 
 void UnitreeJointController::setCommandCB(const a1_msgs::msg::MotorCmd::UniquePtr msg)
-{
+{   //std::cout << "======UnitreeJointController::setCommandCB======" << std::endl;
     lastCmd.mode = msg->mode;
     lastCmd.q = msg->q;
     lastCmd.kp = msg->kp;
@@ -92,22 +92,23 @@ void UnitreeJointController::setCommandCB(const a1_msgs::msg::MotorCmd::UniquePt
     // the writeFromNonRT can be used in RT, if you have the guarantee that
     //  * no non-rt thread is calling the same function (we're not subscribing to ros callbacks)
     //  * there is only one single rt thread
+
     command.writeFromNonRT(lastCmd);
 }
 void UnitreeJointController::setGains(const double &p, const double &i, const double &d, const double &i_max, const double &i_min, const bool &antiwindup)
 {
-    //pid_controller_.setGains(p,i,d,i_max,i_min,antiwindup);
+    pid_controller_.setGains(p,i,d,i_max,i_min,antiwindup);
 }
 
 void UnitreeJointController::getGains(double &p, double &i, double &d, double &i_max, double &i_min, bool &antiwindup)
 {
-    //pid_controller_.getGains(p,i,d,i_max,i_min,antiwindup);
+    pid_controller_.getGains(p,i,d,i_max,i_min,antiwindup);
 }
 
 void UnitreeJointController::getGains(double &p, double &i, double &d, double &i_max, double &i_min)
 {
     bool dummy;
-    //pid_controller_.getGains(p,i,d,i_max,i_min,dummy);
+    pid_controller_.getGains(p,i,d,i_max,i_min,dummy);
 }
 
 UnitreeJointController::UnitreeJointController()
@@ -127,7 +128,6 @@ UnitreeJointController::init(const std::string & controller_name)
     return ret;
   }
 
-
   auto node = get_node();
   // with the lifecycle node being initialized, we can declare parameters
   node->declare_parameter < std::vector < std::string >> (
@@ -144,7 +144,7 @@ UnitreeJointController::init(const std::string & controller_name)
 }
 
 InterfaceConfiguration UnitreeJointController::command_interface_configuration() const
-{
+{ std::cout << " === command_interface_configuration ===" << std::endl;
   std::vector<std::string> conf_names;
   for (const auto & joint_name : FL_joint_names_) {
     conf_names.push_back(joint_name + "/" + HW_IF_VELOCITY);
@@ -163,6 +163,7 @@ InterfaceConfiguration UnitreeJointController::command_interface_configuration()
 
 InterfaceConfiguration UnitreeJointController::state_interface_configuration() const
 {
+  std::cout << " === state_interface_configuration ===" << std::endl;
   std::vector<std::string> conf_names;
   for (const auto & joint_name : FL_joint_names_) {
     conf_names.push_back(joint_name + "/" + HW_IF_POSITION);
@@ -192,6 +193,44 @@ controller_interface::return_type UnitreeJointController::update()
     std::cout << "--- update ------" << std::endl;
     return controller_interface::return_type::OK;
   }
+
+  double currentPos, currentVel, calcTorque;
+  lastCmd = *(command.readFromRT());
+    // set command data
+    //if(lastCmd.mode == PMSM) {
+        servoCmd.pos = lastCmd.q;
+        positionLimits(servoCmd.pos);
+        servoCmd.posStiffness = lastCmd.kp;
+        if(fabs(lastCmd.q - PosStopF) < 0.00001){
+            servoCmd.posStiffness = 0;
+        }
+        servoCmd.vel = lastCmd.dq;
+        //velocityLimits(servoCmd.vel);
+        servoCmd.vel = 0.100;
+        velocityLimits(servoCmd.vel);
+        servoCmd.velStiffness = lastCmd.kd;
+        if(fabs(lastCmd.dq - VelStopF) < 0.00001){
+            servoCmd.velStiffness = 0;
+        }
+        servoCmd.torque = lastCmd.tau;
+        effortLimits(servoCmd.torque);
+    //}
+    if(lastCmd.mode == BRAKE) {
+        servoCmd.posStiffness = 0;
+        servoCmd.vel = 0;
+        servoCmd.velStiffness = 20;
+        servoCmd.torque = 0;
+        effortLimits(servoCmd.torque);
+    }
+    //currentPos = joint.getPosition();
+    currentVel = computeVel(currentPos, (double)lastState.q, (double)lastState.dq, /*period.toSec()*/0);
+    calcTorque = computeTorque(currentPos, currentVel, servoCmd);
+    effortLimits(calcTorque);
+
+    //joint.setCommand(calcTorque);
+    //command.writeFromNonRT(calcTorque);
+    lastState.q = currentPos;
+    lastState.dq = currentVel;
   return controller_interface::return_type::OK;
 }
 
@@ -202,7 +241,6 @@ CallbackReturn UnitreeJointController::on_configure(const rclcpp_lifecycle::Stat
   // update parameters
 
   FL_joint_names_ = node_->get_parameter("FL_joint_names").as_string_array();
-#if 0
   FR_joint_names_ = node_->get_parameter("FR_joint_names").as_string_array();
   RL_joint_names_ = node_->get_parameter("RL_joint_names").as_string_array();
   RR_joint_names_ = node_->get_parameter("RR_joint_names").as_string_array();
@@ -214,12 +252,14 @@ CallbackReturn UnitreeJointController::on_configure(const rclcpp_lifecycle::Stat
       FR_joint_names_.size());
     return CallbackReturn::ERROR;
   }
-#endif
 
   if (FL_joint_names_.empty()) {
     RCLCPP_ERROR(logger, "Wheel names parameters are empty!");
     return CallbackReturn::ERROR;
   }
+
+  urdf::Model urdf;
+
   name_space = get_node()->get_namespace();
 
   sub_ft = get_node()->create_subscription<geometry_msgs::msg::WrenchStamped>(
@@ -242,7 +282,7 @@ CallbackReturn UnitreeJointController::on_activate(const rclcpp_lifecycle::State
   std::cout << "-------A1 dog activate begin-------" << std::endl;
   const auto fl_result =
     configure_side("FL", FL_joint_names_, registered_left_front_handles_);
-#if 0
+
   const auto fr_result =
     configure_side("FR", FR_joint_names_, registered_right_front_handles_);
   const auto rl_result =
@@ -262,7 +302,15 @@ CallbackReturn UnitreeJointController::on_activate(const rclcpp_lifecycle::State
       "Either left wheel interfaces, right wheel interfaces are non existant");
     return CallbackReturn::ERROR;
   }
-#endif
+    lastCmd.q = 0;
+    lastState.q = 0;
+    lastCmd.dq = 0;
+    lastState.dq = 0;
+    lastCmd.tau = 0;
+    lastState.tau_est = 0;
+    command.initRT(lastCmd);
+
+    pid_controller_.reset();
   RCLCPP_DEBUG(node_->get_logger(), "Subscriber and publisher are now active.");
   return CallbackReturn::SUCCESS;
 }
@@ -374,6 +422,23 @@ CallbackReturn UnitreeJointController::configure_side(
 
   return CallbackReturn::SUCCESS;
 }
+
+    void UnitreeJointController::positionLimits(double &position)
+    {   //std::cout << " === positionLimits === " << std::endl;
+        clamp(position, -1, 1);
+    }
+
+    void UnitreeJointController::velocityLimits(double &velocity)
+    {   //std::cout << " === velocityLimits === " << velocity << std::endl;
+        //if (joint_urdf->type == urdf::Joint::REVOLUTE || joint_urdf->type == urdf::Joint::PRISMATIC)
+        clamp(velocity, -1, 1);
+    }
+
+    void UnitreeJointController::effortLimits(double &effort)
+    {   //std::cout << " === effortLimits === " << effort << std::endl;
+        //if (joint_urdf->type == urdf::Joint::REVOLUTE || joint_urdf->type == urdf::Joint::PRISMATIC)
+        clamp(effort, -1, 1);
+    }
 }  // namespace diff_drive_controller
 
 #include "class_loader/register_macro.hpp"

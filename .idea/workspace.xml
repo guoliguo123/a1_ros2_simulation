@@ -7,16 +7,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="22d88e43-eedb-4fa3-80b4-eb451d4d6636" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/a1_controller/src/servo.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/a1_controller/src/servo.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/a1_description/xacro/a1.ros2_control.xacro" beforeDir="false" afterPath="$PROJECT_DIR$/a1_description/xacro/a1.ros2_control.xacro" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/a1_gazebo/worlds/stairs.world" beforeDir="false" afterPath="$PROJECT_DIR$/a1_gazebo/worlds/stairs.world" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/a1_joint_control/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/a1_joint_control/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/a1_joint_control/include/a1_joint.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/a1_joint_control/include/joint_controller.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/a1_joint_control/include/unitree_joint_control_tool.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/a1_joint_control/package.xml" beforeDir="false" afterPath="$PROJECT_DIR$/a1_joint_control/package.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/a1_joint_control/src/a1_joint.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/a1_joint_control/src/joint_controller.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/a1_joint_control/unitree_controller_plugins.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/a1_gazebo/launch/rrbot.launch.py" beforeDir="false" afterPath="$PROJECT_DIR$/a1_gazebo/launch/rrbot.launch.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/a1_joint_control/include/a1_drive_controller/a1_drive_controller.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/a1_joint_control/include/a1_drive_controller/a1_drive_controller.hpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/a1_joint_control/src/a1_drive_controller.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/a1_joint_control/src/a1_drive_controller.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,5 +64,16 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/a1_joint_control/src/a1_drive_controller.cpp</url>
+          <line>358</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

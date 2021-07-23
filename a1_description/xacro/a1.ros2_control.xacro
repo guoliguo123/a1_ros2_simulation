@@ -6,80 +6,44 @@
     </hardware>
     <!--left front leg hip-->
     <joint name="FL_hip_joint">
-      <command_interface name="effort">
+      <command_interface name="velocity">
         <param name="min">-0.5</param>
         <param name="max">0.5</param>
       </command_interface>
-      <command_interface name="Kp"/>
-      <command_interface name="Kd"/>
-      <command_interface name="effort_limit"/>
       <state_interface name="position"/>
       <state_interface name="velocity"/>
       <state_interface name="effort"/>
-      <state_interface name="coil_resistance"/>
-      <state_interface name="timestamp"/>     
     </joint>
     <joint name="FL_thigh_joint">
-      <command_interface name="effort">
+      <command_interface name="velocity">
         <param name="min">-0.5</param>
         <param name="max">0.5</param>
       </command_interface>
-      <command_interface name="Kp"/>
-      <command_interface name="Kd"/>
-      <command_interface name="effort_limit"/>
       <state_interface name="position"/>
       <state_interface name="velocity"/>
       <state_interface name="effort"/>
-      <state_interface name="coil_resistance"/>
-      <state_interface name="timestamp"/>
     </joint>
     <joint name="FL_calf_joint">
-      <command_interface name="effort">
+      <command_interface name="velocity">
         <param name="min">-0.5</param>
         <param name="max">0.5</param>
       </command_interface>
-      <command_interface name="Kp"/>
-      <command_interface name="Kd"/>
-      <command_interface name="effort_limit"/>
       <state_interface name="position"/>
       <state_interface name="velocity"/>
       <state_interface name="effort"/>
-      <state_interface name="coil_resistance"/>
-      <state_interface name="contact_information"/>
-      <state_interface name="timestamp"/>
     </joint>
     <!--front right leg-->
-    <!--<joint name="FR_hip_joint">
-      <command_interface name="position">
-        <param name="min">-1</param>
-        <param name="max">1</param>
-      </command_interface>
+    <joint name="FR_hip_joint">
       <command_interface name="velocity">
         <param name="min">-1</param>
         <param name="max">1</param>
       </command_interface>
-      <command_interface name="effort">
-        <param name="min">-0.5</param>
-        <param name="max">0.5</param>
-      <command_interface name="Kp"/>
-      <command_interface name="Kd"/>
-      <command_interface name="effort_limit"/>
       <state_interface name="position"/>
       <state_interface name="velocity"/>
       <state_interface name="effort"/>
-      <state_interface name="coil_resistance"/>
-      <state_interface name="timestamp"/>
     </joint>
     <joint name="FR_thigh_joint">
-      <command_interface name="position">
-        <param name="min">-1</param>
-        <param name="max">1</param>
-      </command_interface>
       <command_interface name="velocity">
-        <param name="min">-1</param>
-        <param name="max">1</param>
-      </command_interface>
-      <command_interface name="effort">
         <param name="min">-0.5</param>
         <param name="max">0.5</param>
       </command_interface>
@@ -89,150 +53,72 @@
       <state_interface name="position"/>
       <state_interface name="velocity"/>
       <state_interface name="effort"/>
-      <state_interface name="coil_resistance"/>
-      <state_interface name="timestamp"/>
     </joint>
     <joint name="FR_calf_joint">
-      <command_interface name="position">
-        <param name="min">-1</param>
-        <param name="max">1</param>
-      </command_interface>
       <command_interface name="velocity">
-        <param name="min">-1</param>
-        <param name="max">1</param>
-      </command_interface>
-      <command_interface name="effort">
         <param name="min">-0.5</param>
         <param name="max">0.5</param>
       </command_interface>
-      <command_interface name="Kp"/>
-      <command_interface name="Kd"/>
-      <command_interface name="effort_limit"/>
       <state_interface name="position"/>
       <state_interface name="velocity"/>
       <state_interface name="effort"/>
-      <state_interface name="coil_resistance"/>
-      <state_interface name="contact_information"/>
-      <state_interface name="timestamp"/>
-    </joint>-->
+    </joint>
     <!--left leg-->
     <joint name="RL_hip_joint">
-      <command_interface name="effort">
+      <command_interface name="velocity">
         <param name="min">-0.5</param>
         <param name="max">0.5</param>
       </command_interface>
-      <command_interface name="Kp"/>
-      <command_interface name="Kd"/>
-      <command_interface name="effort_limit"/>
       <state_interface name="position"/>
       <state_interface name="velocity"/>
       <state_interface name="effort"/>
-      <state_interface name="coil_resistance"/>
-      <state_interface name="timestamp"/>
     </joint>
     <joint name="RL_thigh_joint">
-      <command_interface name="effort">
+      <command_interface name="velocity">
         <param name="min">-0.5</param>
         <param name="max">0.5</param>
       </command_interface>
-      <command_interface name="Kp"/>
-      <command_interface name="Kd"/>
-      <command_interface name="effort_limit"/>
       <state_interface name="position"/>
       <state_interface name="velocity"/>
       <state_interface name="effort"/>
-      <state_interface name="coil_resistance"/>
-      <state_interface name="timestamp"/>
     </joint>
-    <!--<joint name="RL_calf_joint">
-      <command_interface name="position">
-        <param name="min">-1</param>
-        <param name="max">1</param>
-      </command_interface>
+    <joint name="RL_calf_joint">
       <command_interface name="velocity">
-        <param name="min">-1</param>
-        <param name="max">1</param>
-      </command_interface>
-      <command_interface name="effort">
         <param name="min">-0.5</param>
         <param name="max">0.5</param>
-      <command_interface name="Kp"/>
-      <command_interface name="Kd"/>
-      <command_interface name="effort_limit"/>
+      </command_interface>
       <state_interface name="position"/>
       <state_interface name="velocity"/>
       <state_interface name="effort"/>
-      <state_interface name="coil_resistance"/>
-      <state_interface name="contact_information"/>
-      <state_interface name="timestamp"/>
-    </joint>-->
+    </joint>
     <!--right leg-->
-    <!--<joint name="RR_hip_joint">
-      <command_interface name="position">
-        <param name="min">-1</param>
-        <param name="max">1</param>
-      </command_interface>
+    <joint name="RR_hip_joint">
       <command_interface name="velocity">
-        <param name="min">-1</param>
-        <param name="max">1</param>
-      </command_interface>
-      <command_interface name="effort">
         <param name="min">-0.5</param>
         <param name="max">0.5</param>
       </command_interface>
-      <command_interface name="Kp"/>
-      <command_interface name="Kd"/>
-      <command_interface name="effort_limit"/>
       <state_interface name="position"/>
       <state_interface name="velocity"/>
       <state_interface name="effort"/>
-      <state_interface name="coil_resistance"/>
-      <state_interface name="timestamp"/>
     </joint>
     <joint name="RR_thigh_joint">
-      <command_interface name="position">
-        <param name="min">-1</param>
-        <param name="max">1</param>
-      </command_interface>
       <command_interface name="velocity">
-        <param name="min">-1</param>
-        <param name="max">1</param>
-      </command_interface>
-      <command_interface name="effort">
         <param name="min">-0.5</param>
         <param name="max">0.5</param>
       </command_interface>
-      <command_interface name="Kp"/>
-      <command_interface name="Kd"/>
-      <command_interface name="effort_limit"/>
       <state_interface name="position"/>
       <state_interface name="velocity"/>
       <state_interface name="effort"/>
-      <state_interface name="coil_resistance"/>
-      <state_interface name="timestamp"/>
     </joint>
     <joint name="RR_calf_joint">
-      <command_interface name="position">
-        <param name="min">-1</param>
-        <param name="max">1</param>
-      </command_interface>
       <command_interface name="velocity">
-        <param name="min">-1</param>
-        <param name="max">1</param>
-      </command_interface>
-      <command_interface name="effort">
         <param name="min">-0.5</param>
         <param name="max">0.5</param>
-      <command_interface name="Kp"/>
-      <command_interface name="Kd"/>
-      <command_interface name="effort_limit"/>
+      </command_interface>
       <state_interface name="position"/>
       <state_interface name="velocity"/>
       <state_interface name="effort"/>
-      <state_interface name="coil_resistance"/>
-      <state_interface name="contact_information"/>
-      <state_interface name="timestamp"/>
-    </joint>-->
+    </joint>
 
   </ros2_control>
 </robot>
