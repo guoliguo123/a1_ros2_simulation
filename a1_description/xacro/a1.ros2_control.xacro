@@ -34,7 +34,7 @@
     </joint>
     <!--front right leg-->
     <joint name="FR_hip_joint">
-      <command_interface name="velocity">
+      <command_interface name="effort">
         <param name="min">-1</param>
         <param name="max">1</param>
       </command_interface>
@@ -43,7 +43,7 @@
       <state_interface name="effort"/>
     </joint>
     <joint name="FR_thigh_joint">
-      <command_interface name="velocity">
+      <command_interface name="effort">
         <param name="min">-0.5</param>
         <param name="max">0.5</param>
       </command_interface>
