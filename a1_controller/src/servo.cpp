@@ -58,13 +58,13 @@ public:
                 "/" + robot_name + "_gazebo/RR_hip_controller/state", 1, std::bind(&multiThread::RRhipCallback, this, _1));
         servo_sub[7] = A1_node->create_subscription<a1_msgs::msg::MotorState>(
                 "/" + robot_name + "_gazebo/RR_thigh_controller/state", 1, std::bind(&multiThread::RRthighCallback, this, _1));
-        servo_sub[8] = A1_node->create_subscription<geometry_msgs::msg::WrenchStamped>(
+        servo_sub[8] = A1_node->create_subscription<a1_msgs::msg::MotorState>(
                 "/" + robot_name + "_gazebo/RR_calf_controller/state", 1, std::bind(&multiThread::RRcalfCallback, this, _1));
-        servo_sub[9] = A1_node->create_subscription<geometry_msgs::msg::WrenchStamped>(
+        servo_sub[9] = A1_node->create_subscription<a1_msgs::msg::MotorState>(
                 "/" + robot_name + "_gazebo/RL_hip_controller/state", 1, std::bind(&multiThread::RLhipCallback, this, _1));
-        servo_sub[10] = A1_node->create_subscription<geometry_msgs::msg::WrenchStamped>(
+        servo_sub[10] = A1_node->create_subscription<a1_msgs::msg::MotorState>(
                 "/" + robot_name + "_gazebo/RL_thigh_controller/state", 1, std::bind(&multiThread::RLthighCallback, this, _1));
-        servo_sub[11] = A1_node->create_subscription<geometry_msgs::msg::WrenchStamped>(
+        servo_sub[11] = A1_node->create_subscription<a1_msgs::msg::MotorState>(
                 "/" + robot_name + "_gazebo/RL_calf_controller/state", 1, std::bind(&multiThread::RLcalfCallback, this, _1));
         rclcpp::spin(A1_node);
     }   
@@ -87,7 +87,7 @@ public:
     }
 
     void FRhipCallback(const a1_msgs::msg::MotorState::UniquePtr msg)
-    {
+    {   std::cout << "======FRhipCallback======" << std::endl;
         start_up = false;
         lowState.motorstate[0].mode = msg->mode;
         lowState.motorstate[0].q = msg->q;

@@ -101,7 +101,7 @@ public:
 
   A1_DRIVE_CONTROLLER_PUBLIC
   CallbackReturn on_shutdown(const rclcpp_lifecycle::State & previous_state) override;
-
+  
   void setTorqueCB(const geometry_msgs::msg::WrenchStamped::UniquePtr msg);
   void setCommandCB(const a1_msgs::msg::MotorCmd::UniquePtr msg);
   void positionLimits(double &position);
@@ -117,12 +117,11 @@ protected:
     std::reference_wrapper<const hardware_interface::LoanedStateInterface> position;
     std::reference_wrapper<hardware_interface::LoanedCommandInterface> velocity;
   };
-
   CallbackReturn configure_side(
     const std::string & side,
     const std::vector<std::string> & leg_names,
     std::vector<LegHandle> & registered_handles);
-
+  std::vector<std::string> joint_names_;
   std::vector<std::string> FL_joint_names_;
   std::vector<std::string> FR_joint_names_;
   std::vector<std::string> RL_joint_names_;

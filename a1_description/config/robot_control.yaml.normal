@@ -1,0 +1,18 @@
+controller_manager:
+  ros__parameters:
+    update_rate: 1000
+    # Publish all joint states -----------------------------------
+    joint_state_broadcaster:
+      type: joint_state_broadcaster/JointStateBroadcaster
+    a1_dog_controller:
+      type: a1_joint_control/UnitreeJointController
+
+a1_dog_controller:
+  ros__parameters:
+    FL_joint_names: ["FL_hip_joint", "FL_thigh_joint", "FL_calf_joint"]
+    FR_joint_names: ["FR_hip_joint", "FR_thigh_joint", "FR_calf_joint"]
+    RR_joint_names: ["RR_hip_joint", "RR_thigh_joint", "RR_calf_joint"]
+    RL_joint_names: ["RL_hip_joint", "RL_thigh_joint", "RL_calf_joint"]
+
+
+

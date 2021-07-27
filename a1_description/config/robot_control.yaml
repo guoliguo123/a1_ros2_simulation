@@ -4,15 +4,132 @@ controller_manager:
     # Publish all joint states -----------------------------------
     joint_state_broadcaster:
       type: joint_state_broadcaster/JointStateBroadcaster
-    a1_dog_controller:
+
+    FL_hip_controller:
       type: a1_joint_control/UnitreeJointController
 
-a1_dog_controller:
+    FL_thigh_controller:
+      type: a1_joint_control/UnitreeJointController
+
+    FL_calf_controller:
+      type: a1_joint_control/UnitreeJointController
+
+    FR_hip_controller:
+      type: a1_joint_control/UnitreeJointController
+
+    FR_thigh_controller:
+      type: a1_joint_control/UnitreeJointController
+
+    FR_calf_controller:
+      type: a1_joint_control/UnitreeJointController
+
+    RR_hip_controller:
+      type: a1_joint_control/UnitreeJointController
+
+    RR_thigh_controller:
+      type: a1_joint_control/UnitreeJointController
+
+    RR_calf_controller:
+      type: a1_joint_control/UnitreeJointController
+
+    RL_hip_controller:
+      type: a1_joint_control/UnitreeJointController
+
+    RL_thigh_controller:
+      type: a1_joint_control/UnitreeJointController
+
+    RL_calf_controller:
+      type: a1_joint_control/UnitreeJointController
+
+FL_hip_controller:
   ros__parameters:
-    FL_joint_names: ["FL_hip_joint", "FL_thigh_joint", "FL_calf_joint"]
-    FR_joint_names: ["FR_hip_joint", "FR_thigh_joint", "FR_calf_joint"]
-    RR_joint_names: ["RR_hip_joint", "RR_thigh_joint", "RR_calf_joint"]
-    RL_joint_names: ["RL_hip_joint", "RL_thigh_joint", "RL_calf_joint"]
+    joints:
+      - FL_hip_joint
+    interface_name: position
+    interface_name: velocity
+
+FL_thigh_controller:
+  ros__parameters:
+    joints:
+      - FL_thigh_joint
+    interface_name: position
+    interface_name: velocity
+
+FL_calf_controller:
+  ros__parameters:
+    joints:
+      - FL_calf_joint
+    interface_name: position
+    interface_name: velocity
+
+FR_hip_controller:
+  ros__parameters:
+    joints:
+      - FR_hip_joint
+    interface_name: position
+    interface_name: velocity
+
+FR_thigh_controller:
+  ros__parameters:
+    joints:
+      - FR_thigh_joint
+    interface_name: position
+    interface_name: velocity
+
+FR_calf_controller:
+  ros__parameters:
+    joints:
+      - FR_calf_joint
+    interface_name: position
+    interface_name: velocity
+
+RR_hip_controller:
+  ros__parameters:
+    joints:
+      - RR_hip_joint
+    interface_name: position
+    interface_name: velocity
+
+RR_thigh_controller:
+  ros__parameters:
+    joints:
+      - RR_thigh_joint
+    interface_name: position
+    interface_name: velocity
+
+RR_calf_controller:
+  ros__parameters:
+    joints:
+      - RR_calf_joint
+    interface_name: position
+    interface_name: velocity
+
+RL_hip_controller:
+  ros__parameters:
+    joints:
+      - RL_hip_joint
+    interface_name: position
+    interface_name: velocity
+
+RL_thigh_controller:
+  ros__parameters:
+    joints:
+      - RL_thigh_joint
+    interface_name: position
+    interface_name: velocity
+
+RL_calf_controller:
+  ros__parameters:
+    joints:
+      - RL_calf_joint
+    interface_name: position
+    interface_name: velocity
+
+  #ros__parameters:
+  #  FL_joint_names: ["FL_hip_joint", "FL_thigh_joint", "FL_calf_joint"]
+  #  FR_joint_names: ["FR_hip_joint", "FR_thigh_joint", "FR_calf_joint"]
+  #  RR_joint_names: ["RR_hip_joint", "RR_thigh_joint", "RR_calf_joint"]
+  #  RL_joint_names: ["RL_hip_joint", "RL_thigh_joint", "RL_calf_joint"]
 
 
 

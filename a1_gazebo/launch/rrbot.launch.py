@@ -96,14 +96,88 @@ def generate_launch_description():
         arguments=["joint_state_broadcaster"],
         output="screen",
     )
-    spawn_controller_1 = Node(
+    #arguments=["FL_hip_controller", "FL_thigh_controller", "FL_calf_controller",
+    #           "FR_hip_controller", "FR_thigh_controller", "FR_calf_controller",
+    #           "RR_hip_controller", "RR_thigh_controller", "RR_calf_controller",
+    #           "RL_hip_controller", "RL_thigh_controller", "RL_calf_controller"],
+
+    FL_hip_controller = Node(
         package="controller_manager",
         executable="spawner.py",
-        arguments=["a1_dog_controller"],
+        arguments=["FL_hip_controller"],
+        output="screen",
+    )
+    FL_thigh_controller = Node(
+        package="controller_manager",
+        executable="spawner.py",
+        arguments=["FL_thigh_controller"],
+        output="screen",
+    )
+    FL_calf_controller = Node(
+        package="controller_manager",
+        executable="spawner.py",
+        arguments=["FL_calf_controller"],
+        output="screen",
+    )
+    FR_hip_controller = Node(
+        package="controller_manager",
+        executable="spawner.py",
+        arguments=["FR_hip_controller"],
+        output="screen",
+    )
+    FR_thigh_controller = Node(
+        package="controller_manager",
+        executable="spawner.py",
+        arguments=["FR_thigh_controller"],
         output="screen",
     )
 
+    FR_calf_controller = Node(
+        package="controller_manager",
+        executable="spawner.py",
+        arguments=["FR_calf_controller"],
+        output="screen",
+    )
 
+    RR_hip_controller = Node(
+        package="controller_manager",
+        executable="spawner.py",
+        arguments=["RR_hip_controller"],
+        output="screen",
+    )
+    RR_thigh_controller = Node(
+        package="controller_manager",
+        executable="spawner.py",
+        arguments=["RR_thigh_controller"],
+        output="screen",
+    )
+
+    RR_calf_controller = Node(
+        package="controller_manager",
+        executable="spawner.py",
+        arguments=["RR_calf_controller"],
+        output="screen",
+    )
+
+    RL_hip_controller = Node(
+        package="controller_manager",
+        executable="spawner.py",
+        arguments=["RL_hip_controller"],
+        output="screen",
+    )
+    RL_thigh_controller = Node(
+        package="controller_manager",
+        executable="spawner.py",
+        arguments=["RL_thigh_controller"],
+        output="screen",
+    )
+
+    RL_calf_controller = Node(
+        package="controller_manager",
+        executable="spawner.py",
+        arguments=["RL_calf_controller"],
+        output="screen",
+    )
     
     return LaunchDescription(
         [
@@ -112,6 +186,17 @@ def generate_launch_description():
             node_robot_state_publisher,
             spawn_entity,
             spawn_controller,
-            spawn_controller_1,
+            FL_hip_controller,
+            FL_thigh_controller,
+            FL_calf_controller,
+            FR_hip_controller,
+            FR_thigh_controller,
+            FR_calf_controller,
+            RR_hip_controller,
+            RR_thigh_controller,
+            RR_calf_controller,
+            RL_hip_controller,
+            RL_thigh_controller,
+            RL_calf_controller,
         ]
     )

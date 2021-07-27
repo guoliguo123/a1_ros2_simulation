@@ -130,7 +130,8 @@ UnitreeJointController::init(const std::string & controller_name)
   auto node = get_node();
   // with the lifecycle node being initialized, we can declare parameters
   node->declare_parameter < std::vector < std::string >> (
-          "FL_joint_names", std::vector<std::string>());
+          "joints", joint_names_);
+#if 0
   node->declare_parameter < std::vector < std::string >> (
           "FR_joint_names", std::vector<std::string>());
 
@@ -138,16 +139,19 @@ UnitreeJointController::init(const std::string & controller_name)
           "RL_joint_names", std::vector<std::string>());
   node->declare_parameter < std::vector < std::string >> (
           "RR_joint_names", std::vector<std::string>());
-
+#endif
   return controller_interface::return_type::OK;
 }
 
 InterfaceConfiguration UnitreeJointController::command_interface_configuration() const
 { std::cout << " === command_interface_configuration ===" << std::endl;
   std::vector<std::string> conf_names;
-  for (const auto & joint_name : FL_joint_names_) {
-    conf_names.push_back(joint_name + "/" + HW_IF_VELOCITY);
-  }
+
+  //for (const auto & joint_name : joint_names_) {
+    std::cout << "====command_interface_configuration====" << joint_name << std::endl;
+    conf_names.push_back(joint_names_[0] + "/" + HW_IF_VELOCITY);
+  //}
+#if 0
   for (const auto & joint_name : FR_joint_names_) {
     conf_names.push_back(joint_name + "/" + HW_IF_VELOCITY);
   }
@@ -157,26 +161,23 @@ InterfaceConfiguration UnitreeJointController::command_interface_configuration()
   for (const auto & joint_name : RR_joint_names_) {
     conf_names.push_back(joint_name + "/" + HW_IF_VELOCITY);
   }
-  return {interface_configuration_type::INDIVIDUAL, conf_names};
+#endif
+    return {interface_configuration_type::INDIVIDUAL, conf_names};
 }
 
 InterfaceConfiguration UnitreeJointController::state_interface_configuration() const
 {
   std::cout << " === state_interface_configuration ===" << std::endl;
-  std::vector<std::string> conf_names;
-  for (const auto & joint_name : FL_joint_names_) {
-    conf_names.push_back(joint_name + "/" + HW_IF_POSITION);
-  }
-  for (const auto & joint_name : FR_joint_names_) {
-    conf_names.push_back(joint_name + "/" + HW_IF_POSITION);
-  }
-  for (const auto & joint_name : RL_joint_names_) {
-    conf_names.push_back(joint_name + "/" + HW_IF_POSITION);
-  }
-  for (const auto & joint_name : RR_joint_names_) {
-    conf_names.push_back(joint_name + "/" + HW_IF_POSITION);
-  }
-  return {interface_configuration_type::INDIVIDUAL, conf_names};
+    std::vector<std::string> conf_names;
+    //for (const auto & joint_name : joint_names_) {
+        conf_names.push_back(joint_names_[0] + "/" + HW_IF_POSITION);
+    //}
+#if 0
+    for (const auto & joint_name : right_wheel_names_) {
+        conf_names.push_back(joint_name + "/" + HW_IF_POSITION);
+    }
+#endif
+    return {interface_configuration_type::INDIVIDUAL, conf_names};
 }
 
 
@@ -233,8 +234,8 @@ controller_interface::return_type UnitreeJointController::update()
     lastState.dq = currentVel;
 
     if (controller_state_publisher_ && controller_state_publisher_->trylock()) {
-        controller_state_publisher_->msg_.q = lastState.q;
-        controller_state_publisher_->msg_.dq = lastState.dq;
+        controller_state_publisher_->msg_.q = 11;//lastState.q;
+        controller_state_publisher_->msg_.dq = 11;lastState.dq;
         controller_state_publisher_->unlockAndPublish();
     }
   return controller_interface::return_type::OK;
@@ -245,11 +246,15 @@ CallbackReturn UnitreeJointController::on_configure(const rclcpp_lifecycle::Stat
   auto logger = node_->get_logger();
   std::cout << "-------A1 dog on_configure begin-------" << std::endl;
   // update parameters
+  std::string node_name;
+  joint_names_ = node_->get_parameter("joints").as_string_array();
 
-  FL_joint_names_ = node_->get_parameter("FL_joint_names").as_string_array();
-  FR_joint_names_ = node_->get_parameter("FR_joint_names").as_string_array();
-  RL_joint_names_ = node_->get_parameter("RL_joint_names").as_string_array();
-  RR_joint_names_ = node_->get_parameter("RR_joint_names").as_string_array();
+  node_name = node_->get_name();
+  std::cout << "+++++ " << node_name << std::endl;
+#if 0
+  FR_joint_names_ = node_->get_parameter("joints").as_string_array();
+  RL_joint_names_ = node_->get_parameter("joints").as_string_array();
+  RR_joint_names_ = node_->get_parameter("joints").as_string_array();
   if (FL_joint_names_.size() != FR_joint_names_.size()) {
     RCLCPP_ERROR(
       logger,
@@ -258,8 +263,8 @@ CallbackReturn UnitreeJointController::on_configure(const rclcpp_lifecycle::Stat
       FR_joint_names_.size());
     return CallbackReturn::ERROR;
   }
-
-  if (FL_joint_names_.empty()) {
+#endif
+  if (joint_names_.empty()) {
     RCLCPP_ERROR(logger, "Wheel names parameters are empty!");
     return CallbackReturn::ERROR;
   }
@@ -269,13 +274,13 @@ CallbackReturn UnitreeJointController::on_configure(const rclcpp_lifecycle::Stat
   name_space = get_node()->get_namespace();
 
   sub_ft = get_node()->create_subscription<geometry_msgs::msg::WrenchStamped>(
-            name_space +"joint_wrench", 1, std::bind(&UnitreeJointController::setTorqueCB,this, ph::_1));
+          "a1_gazebo/" + node_name +"/joint_wrench", 1, std::bind(&UnitreeJointController::setTorqueCB,this, ph::_1));
   //sub_cmd = n.subscribe("command", 20, &UnitreeJointController::setCommandCB, this);
   sub_cmd = get_node()->create_subscription<a1_msgs::msg::MotorCmd>(
-            "command", 20, std::bind(&UnitreeJointController::setCommandCB,this , ph::_1));
+          "a1_gazebo/" + node_name + "/command", 20, std::bind(&UnitreeJointController::setCommandCB,this , ph::_1));
   limited_velocity_publisher_ =
         node_->create_publisher<a1_msgs::msg::MotorState>(
-                name_space + "state",
+                "a1_gazebo/" + node_name + "/state",
                 rclcpp::SystemDefaultsQoS());
   controller_state_publisher_ =
             std::make_shared<realtime_tools::RealtimePublisher<a1_msgs::msg::MotorState>>(limited_velocity_publisher_);
@@ -287,8 +292,8 @@ CallbackReturn UnitreeJointController::on_activate(const rclcpp_lifecycle::State
 {
   std::cout << "-------A1 dog activate begin-------" << std::endl;
   const auto fl_result =
-    configure_side("FL", FL_joint_names_, registered_left_front_handles_);
-
+    configure_side("FL", joint_names_, registered_left_front_handles_);
+#if 0
   const auto fr_result =
     configure_side("FR", FR_joint_names_, registered_right_front_handles_);
   const auto rl_result =
@@ -296,6 +301,7 @@ CallbackReturn UnitreeJointController::on_activate(const rclcpp_lifecycle::State
   const auto rr_result =
     configure_side("RR", RR_joint_names_, registered_right_rear_handles_);
   std::cout << "-------A1 dog activate rear -------" << std::endl;
+
   if (fl_result == CallbackReturn::ERROR || fr_result == CallbackReturn::ERROR ||
           rl_result == CallbackReturn::ERROR || rr_result == CallbackReturn::ERROR) {
     return CallbackReturn::ERROR;
@@ -308,6 +314,7 @@ CallbackReturn UnitreeJointController::on_activate(const rclcpp_lifecycle::State
       "Either left wheel interfaces, right wheel interfaces are non existant");
     return CallbackReturn::ERROR;
   }
+
     lastCmd.q = 0;
     lastState.q = 0;
     lastCmd.dq = 0;
@@ -317,6 +324,7 @@ CallbackReturn UnitreeJointController::on_activate(const rclcpp_lifecycle::State
     command.initRT(lastCmd);
 
     pid_controller_.reset();
+#endif
   RCLCPP_DEBUG(node_->get_logger(), "Subscriber and publisher are now active.");
   return CallbackReturn::SUCCESS;
 }
