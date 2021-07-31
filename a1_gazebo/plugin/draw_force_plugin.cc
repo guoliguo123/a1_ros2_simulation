@@ -35,7 +35,7 @@ namespace gazebo
 
         void Load(rendering::VisualPtr _parent, sdf::ElementPtr _sdf )
         {
-            std::cout << "=====begin run draw plug======" << std::endl;
+            //std::cout << "=====begin run draw plug======" << std::endl;
             this->visual = _parent;
             this->visual_namespace = "visual";
             if (!_sdf->HasElement("topicName")){
@@ -43,7 +43,7 @@ namespace gazebo
                 this->topic_name = "/default_force_draw";
             } else{
                 this->topic_name = _sdf->Get<std::string>("topicName");
-                std::cout << "=== draw topic_name === " << this->topic_name << std::endl;
+                //std::cout << "=== draw topic_name === " << this->topic_name << std::endl;
             }
             if (!rclcpp::ok()){
                 int argc = 0;
@@ -79,7 +79,7 @@ namespace gazebo
             Fx = msg->wrench.force.x/20.0;
             Fy = msg->wrench.force.y/20.0;
             Fz = msg->wrench.force.z/20.0;
-            std::cout << " === draw CallBack === " << std::endl;
+            //std::cout << " === draw CallBack === " << std::endl;
             // Fx = msg.wrench.force.x;
             // Fy = msg.wrench.force.y;
             // Fz = msg.wrench.force.z;

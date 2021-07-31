@@ -66,11 +66,16 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${GAZEBO_CXX_FLAGS}")
 #                )
 find_package(rclcpp REQUIRED)
  
-add_executable(unitree_move
-             src/move_publisher.cpp
- )
-ament_target_dependencies(unitree_move ${dependencies})
- 
+#add_executable(unitree_move
+#             src/move_publisher.cpp
+# )
+#ament_target_dependencies(unitree_move ${dependencies})
+
+add_executable(unitree_set_model
+        src/set_model_state.cpp
+        )
+ament_target_dependencies(unitree_set_model ${dependencies})
+
 add_executable(unitree_servo
              src/body.cpp
              src/servo.cpp
@@ -79,8 +84,9 @@ add_executable(unitree_servo
 ament_target_dependencies(unitree_servo ${dependencies})
 install(TARGETS
          #a1_body
-         unitree_move
+         #unitree_move
          unitree_servo
+         unitree_set_model
          DESTINATION lib/${PROJECT_NAME}
          )
  

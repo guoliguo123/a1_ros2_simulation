@@ -144,11 +144,11 @@ UnitreeJointController::init(const std::string & controller_name)
 }
 
 InterfaceConfiguration UnitreeJointController::command_interface_configuration() const
-{ std::cout << " === command_interface_configuration ===" << std::endl;
+{ //std::cout << " === command_interface_configuration ===" << std::endl;
   std::vector<std::string> conf_names;
 
   //for (const auto & joint_name : joint_names_) {
-    std::cout << "====command_interface_configuration====" << joint_name << std::endl;
+    //std::cout << "====command_interface_configuration====" << joint_name << std::endl;
     conf_names.push_back(joint_names_[0] + "/" + HW_IF_VELOCITY);
   //}
 #if 0
@@ -167,7 +167,7 @@ InterfaceConfiguration UnitreeJointController::command_interface_configuration()
 
 InterfaceConfiguration UnitreeJointController::state_interface_configuration() const
 {
-  std::cout << " === state_interface_configuration ===" << std::endl;
+  //std::cout << " === state_interface_configuration ===" << std::endl;
     std::vector<std::string> conf_names;
     //for (const auto & joint_name : joint_names_) {
         conf_names.push_back(joint_names_[0] + "/" + HW_IF_POSITION);
@@ -244,7 +244,7 @@ controller_interface::return_type UnitreeJointController::update()
 CallbackReturn UnitreeJointController::on_configure(const rclcpp_lifecycle::State &)
 {
   auto logger = node_->get_logger();
-  std::cout << "-------A1 dog on_configure begin-------" << std::endl;
+  //std::cout << "-------A1 dog on_configure begin-------" << std::endl;
   // update parameters
   std::string node_name;
   joint_names_ = node_->get_parameter("joints").as_string_array();
@@ -284,13 +284,13 @@ CallbackReturn UnitreeJointController::on_configure(const rclcpp_lifecycle::Stat
                 rclcpp::SystemDefaultsQoS());
   controller_state_publisher_ =
             std::make_shared<realtime_tools::RealtimePublisher<a1_msgs::msg::MotorState>>(limited_velocity_publisher_);
-  std::cout << "-------A1 dog on_configure over-------" << std::endl;
+  //std::cout << "-------A1 dog on_configure over-------" << std::endl;
   return CallbackReturn::SUCCESS;
 }
 
 CallbackReturn UnitreeJointController::on_activate(const rclcpp_lifecycle::State &)
 {
-  std::cout << "-------A1 dog activate begin-------" << std::endl;
+  //std::cout << "-------A1 dog activate begin-------" << std::endl;
   const auto fl_result =
     configure_side("FL", joint_names_, registered_left_front_handles_);
 #if 0

@@ -70,6 +70,7 @@ install(TARGETS
         unitreeFootContactPlugin
         unitreeDrawForcePlugin
         DESTINATION lib/${PROJECT_NAME}
+        DESTINATION /opt/ros/foxy/lib
         )
 
 install(DIRECTORY

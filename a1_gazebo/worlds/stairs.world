@@ -114,5 +114,12 @@
         <!--<plugin name="a1_dog" filename="liba1_joint_control.so">
           <joint_name>FL_hip_joint</joint_name>
         </plugin>-->
+        <plugin name="gazebo_ros_state" filename="libgazebo_ros_state.so">
+            <ros>
+                <namespace>/demo</namespace>
+                <remap>model_states:=model_states_demo</remap>
+            </ros>
+                <update_rate>1.0</update_rate>
+        </plugin>
     </world>
 </sdf>
