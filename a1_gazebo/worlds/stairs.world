@@ -105,15 +105,12 @@
                     </material>
                 </visual>
             </link>
-
         </model>
 
         <include>
             <uri>model:///root/try/mobot/a1_ros2_simulation/a1_gazebo/worlds/building_editor_models/stairs</uri>
         </include>
-        <!--<plugin name="a1_dog" filename="liba1_joint_control.so">
-          <joint_name>FL_hip_joint</joint_name>
-        </plugin>-->
+
         <plugin name="gazebo_ros_state" filename="libgazebo_ros_state.so">
             <ros>
                 <namespace>/demo</namespace>

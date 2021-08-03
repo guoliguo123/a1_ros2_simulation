@@ -109,5 +109,13 @@
       </collision>
     </link>
     <static>1</static>
+    <plugin filename="libgazebo_ros_force.so" name="gazebo_ros_force">
+        <ros>
+            <namespace>/demo/world</namespace>
+            <remap>gazebo_ros_force:=force_demo</remap>
+        </ros>
+        <link_name>Stairs_1</link_name>
+        <force_frame>world</force_frame>
+    </plugin>
   </model>
 </sdf>

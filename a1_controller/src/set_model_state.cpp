@@ -19,7 +19,7 @@ public:
         node = rclcpp::Node::make_shared("set_model_state");
         client = node->create_client<gazebo_msgs::srv::SetEntityState>(ROS2_SERVICE_SET_MODEL_STATE);
     }
-    void client_set_model_state();
+    void client_set_model_state(std::string joint);
 private:
     rclcpp::TimerBase::SharedPtr timer_c;
     rclcpp::Client<gazebo_msgs::srv::SetEntityState>::SharedPtr client;
@@ -28,7 +28,7 @@ private:
     uint8_t set_mode;
 };
 
-void ClientNode::client_set_model_state() {
+void ClientNode::client_set_model_state(std::string joint) {
     size_t times = 0;
 
     auto request = std::make_shared<gazebo_msgs::srv::SetEntityState::Request>();
@@ -39,14 +39,90 @@ void ClientNode::client_set_model_state() {
             return;
     }
     if (set_mode == 1) {
-        request->state.twist.linear.x = 0.02; //0.02: 2cm/sec;
-        request->state.twist.linear.y = 0.0;
-        request->state.twist.linear.z = 0.08;
+
+        request->state.twist.linear.x  = 0.02; //0.02: 2cm/sec;
+        request->state.twist.linear.y  = 0.0;
+        request->state.twist.linear.z  = 0.0;
         request->state.twist.angular.x = 0.0;
         request->state.twist.angular.y = 0.0;
         request->state.twist.angular.z = 0.0;
         request->state.name = "base";
         //request->reference_frame = "base";
+        request->state.name = joint;
+#if 0
+        if (joint == "FL_hip")
+        {
+            request->state.pose.position.x = 0.2;
+            request->state.pose.position.y = -0.2;
+            request->state.pose.position.z = 0.5;
+        }
+        else if (joint == "FL_thigh")
+        {
+            request->state.pose.position.x = 0.2;
+            request->state.pose.position.y = -0.2;
+            request->state.pose.position.z = 0.25;
+        }
+        else if (joint == "FL_calf")
+        {
+            request->state.pose.position.x = 0.2;
+            request->state.pose.position.y = -0.2;
+            request->state.pose.position.z = 0.0;
+        }
+        else if (joint == "FR_hip")
+        {
+            request->state.pose.position.x = -0.2;
+            request->state.pose.position.y = -0.2;
+            request->state.pose.position.z = 0.5;
+        }
+        else if (joint == "FR_thigh")
+        {
+            request->state.pose.position.x = -0.2;
+            request->state.pose.position.y = -0.2;
+            request->state.pose.position.z = 0.25;
+        }
+        else if (joint == "FR_calf")
+        {
+            request->state.pose.position.x = -0.2;
+            request->state.pose.position.y = -0.2;
+            request->state.pose.position.z = 0.0;
+        }
+        else if (joint == "RL_hip")
+        {
+            request->state.pose.position.x = 0.2;
+            request->state.pose.position.y = 0.2;
+            request->state.pose.position.z = 0.5;
+        }
+        else if (joint == "RL_thigh")
+        {
+            request->state.pose.position.x = 0.2;
+            request->state.pose.position.y = 0.2;
+            request->state.pose.position.z = 0.25;
+        }
+        else if (joint == "RL_calf")
+        {
+            request->state.pose.position.x = 0.2;
+            request->state.pose.position.y = 0.2;
+            request->state.pose.position.z = 0.0;
+        }
+        else if (joint == "RR_hip")
+        {
+            request->state.pose.position.x = -0.2;
+            request->state.pose.position.y = 0.2;
+            request->state.pose.position.z = 0.5;
+        }
+        else if (joint == "RR_thigh")
+        {
+            request->state.pose.position.x = -0.2;
+            request->state.pose.position.y = 0.2;
+            request->state.pose.position.z = 0.25;
+        }
+        else if (joint == "RR_calf")
+        {
+            request->state.pose.position.x = -0.2;
+            request->state.pose.position.y = 0.2;
+            request->state.pose.position.z = 0.0;
+        }
+#endif
     }
     else
     {
@@ -109,7 +185,24 @@ int main(int argc, char *argv[]) {
     rclcpp::WallRate loop_rate(1000);
     while (rclcpp::ok())
     {
-        set_model_state.client_set_model_state();
+        set_model_state.client_set_model_state("base");
+#if 0
+        set_model_state.client_set_model_state("FL_hip");
+        set_model_state.client_set_model_state("FL_thigh");
+        set_model_state.client_set_model_state("FL_calf");
+
+        set_model_state.client_set_model_state("FR_hip");
+        set_model_state.client_set_model_state("FR_thigh");
+        set_model_state.client_set_model_state("FR_calf");
+
+        set_model_state.client_set_model_state("RR_hip");
+        set_model_state.client_set_model_state("RR_thigh");
+        set_model_state.client_set_model_state("RR_calf");
+
+        set_model_state.client_set_model_state("RL_hip");
+        set_model_state.client_set_model_state("RL_thigh");
+        set_model_state.client_set_model_state("RL_calf");
+#endif
         loop_rate.sleep();
     }
     rclcpp::shutdown();

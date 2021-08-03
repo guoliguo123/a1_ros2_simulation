@@ -9,16 +9,6 @@
         </plugin>
     </gazebo>
 
-    <gazebo reference="trunk">
-        <plugin filename="libgazebo_ros_force.so" name="gazebo_ros_force">
-            <ros>
-                <namespace>/demo</namespace>
-                <argument>gazebo_ros_force:=force_demo</argument>
-            </ros>
-            <link_name>trunk_1</link_name>
-            <force_frame>link</force_frame>
-        </plugin>
-    </gazebo>
     <gazebo>
         <plugin name="3dplot" filename="libLinkPlot3DPlugin.so">
             <frequency>10</frequency>
@@ -42,6 +32,7 @@
                     <namespace>/imu</namespace>
                     <remapping>~/out:=imu_data</remapping>
                 </ros>
+                <initial_orientation_as_reference>false</initial_orientation_as_reference>
                 <link_name>imu_link</link_name>
                 <updateRateHZ>1000.0</updateRateHZ>
                 <gaussianNoise>0.0</gaussianNoise>
@@ -52,7 +43,6 @@
             <pose>0 0 0 0 0 0</pose>
         </sensor>
     </gazebo>
-
     <!-- Foot contacts. -->
     <gazebo reference="FR_calf">
         <sensor name="FR_foot_contact" type="contact">
