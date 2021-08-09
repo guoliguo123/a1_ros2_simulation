@@ -87,7 +87,7 @@ public:
     }
 
     void FRhipCallback(const a1_msgs::msg::MotorState::UniquePtr msg)
-    {   std::cout << "======FRhipCallback======" << std::endl;
+    {
         start_up = false;
         lowState.motorstate[0].mode = msg->mode;
         lowState.motorstate[0].q = msg->q;

@@ -53,7 +53,7 @@
 #include <geometry_msgs/msg/wrench_stamped.h>
 #include "a1_drive_controller/unitree_joint_control_tool.h"
 #include <geometry_msgs/msg/wrench_stamped.hpp>
-
+#include "rcppmath/clamp.hpp"
 namespace a1_joint_control
 {
 using CallbackReturn = rclcpp_lifecycle::node_interfaces::LifecycleNodeInterface::CallbackReturn;
@@ -116,6 +116,7 @@ protected:
   {
     std::reference_wrapper<const hardware_interface::LoanedStateInterface> position;
     std::reference_wrapper<hardware_interface::LoanedCommandInterface> velocity;
+      //std::reference_wrapper<hardware_interface::LoanedCommandInterface> effort;
   };
   CallbackReturn configure_side(
     const std::string & side,

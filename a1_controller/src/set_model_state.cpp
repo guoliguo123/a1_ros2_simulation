@@ -39,16 +39,26 @@ void ClientNode::client_set_model_state(std::string joint) {
             return;
     }
     if (set_mode == 1) {
-
-        request->state.twist.linear.x  = 0.02; //0.02: 2cm/sec;
+#if 0
+        request->state.twist.linear.x  = 0.0; //0.02: 2cm/sec;
         request->state.twist.linear.y  = 0.0;
         request->state.twist.linear.z  = 0.0;
         request->state.twist.angular.x = 0.0;
         request->state.twist.angular.y = 0.0;
-        request->state.twist.angular.z = 0.0;
+        request->state.twist.angular.z = 1.0;
         request->state.name = "base";
         //request->reference_frame = "base";
         request->state.name = joint;
+#endif
+        request->state.name = "base";
+        request->state.pose.position.x = 0.0;
+        request->state.pose.position.y = 0.0;
+        request->state.pose.position.z = 0.0;
+
+        request->state.pose.orientation.x = 0.0;
+        request->state.pose.orientation.y = 0.0;
+        request->state.pose.orientation.z = 0.0;
+        request->state.pose.orientation.w = 1.0;
 #if 0
         if (joint == "FL_hip")
         {
